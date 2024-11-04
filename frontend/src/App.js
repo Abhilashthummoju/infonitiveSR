@@ -126,7 +126,7 @@ function App() {
           </div>
         </div>
         <div style={{ position: "absolute", right: 140 }}>
-          <img src={"/images/pngegg.png"} alt="Logo" style={{ width: "500px", height: "400px" }} />
+          <img src={"./images/pngegg.png"} alt="Logo" style={{ width: "500px", height: "400px" }} />
         </div>
       </div>
 
