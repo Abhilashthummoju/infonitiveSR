@@ -7,7 +7,9 @@ import {
   FaLinkedinIn,
   FaGlassdoor,
 } from "react-icons/fa"; // Importing social media icons
-import logoImage from "./images/pngegg.png";
+import logoImage from "./images/home-font.png";
+import { FaLaptopCode, FaHeadset, FaTicketAlt, FaComments, FaWifi,FaBox,FaPhoneVolume,FaBuilding } from "react-icons/fa"; // Importing relevant icons
+
 
 function App() {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -29,7 +31,8 @@ function App() {
     color: "white",
     textAlign: "center",
     position: "relative", // Position relative for mountain
-    overflow: "hidden", // Hide overflow to maintain design
+    // overflow: "hidden", 
+    paddingTop: 60// Hide overflow to maintain design
   };
 
   const containerStyle = {
@@ -42,7 +45,7 @@ function App() {
     textAlign: "center", // Center text inside the box
     position: "absolute", // Relative positioning
     zIndex: 1, // Bring the content above the mountain
-    left: 140,
+    left: 120,
   };
 
   const headingStyle = {
@@ -223,21 +226,37 @@ function App() {
           <img
             src={logoImage}
             alt="Logo"
-            style={{ width: "500px", height: "400px" }}
+            style={{ width: "700px", height: "700px" }}
           />
         </div>
+        <svg
+        viewBox="0 0 1440 320"
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          height: "auto",
+        }}
+      >
+        <path
+          fill="#ffffff" // Color of the wave
+          fillOpacity="1"
+          d="M1440,96L1392,122.7C1344,149,1248,203,1152,202.7C1056,203,960,149,864,144C768,139,672,181,576,192C480,203,384,181,288,176C192,171,96,181,48,186.7L0,192L0,320L48,320C96,320,192,320,288,320C384,320,480,320,576,320C672,320,768,320,864,320C960,320,1056,320,1152,320C1248,320,1344,320,1392,320L1440,320Z"
+        ></path>
+      </svg>
       </div>
 
       {/* ================================================= Services Section ============================================= */}
 
-      <div id="services" style={sectionStyle}>
-        <h3>What we provide</h3>
-        <h1 style={{ marginTop: -11 }}>Our Services</h1>
+      <div id="services" style={{...sectionStyle,background:"white"}}>
+        <h3 style={{color:"black"}}>What we provide</h3>
+        <h1 style={{ marginTop: -11,color:"black" }}>Our Services</h1>
 
         {/* <============customer support ============> */}
         <div style={{ marginBottom: 20 }}>
           <div>
-            <h2 style={{ textAlign: "center" }}>Customer Support</h2>
+            <h2 style={{ textAlign: "center",color:"black" }}>Customer Support</h2>
           </div>
 
           {/* SERVICES BOXES */}
@@ -251,8 +270,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+               <FaHeadset size={40} color="#007BFF" />
               <h1 style={{ color: "black" }}>Voice Support</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{color:"black"}} >Dedicated assistance via phone to address customer inquiries and provide real-time solutions..</p>
             </div>
 
             <div
@@ -264,8 +284,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+              <FaComments size={40} color="#007BFF" />
               <h1 style={{ color: "black" }}>Non - Voice Support</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{color:"black"}}>Comprehensive customer support through email, chat, and ticketing systems for efficient issue resolution.</p>
             </div>
 
             <div
@@ -277,8 +298,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+              <FaTicketAlt size={40} color="#007BFF" />
               <h1 style={{ color: "black" }}>Ticketing Service</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{color:"black"}}>A streamlined system for logging and managing customer queries to ensure timely responses and resolution.</p>
             </div>
           </div>
         </div>
@@ -286,7 +308,7 @@ function App() {
         {/* <============Technical Support ==========> */}
         <div style={{ marginBottom: 20 }}>
           <div>
-            <h2 style={{ textAlign: "center" }}>Technical Support</h2>
+            <h2 style={{ textAlign: "center",color:"black" }}>Technical Support</h2>
           </div>
 
           {/* SERVICES BOXES */}
@@ -300,8 +322,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <h1 style={{ color: "black" }}>Voice Support</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+        <FaWifi size={40} color="#007BFF" />      
+        <h1 style={{ color: "black" }}> ISP Technical Queries</h1>
+              <p style={{color:"black"}}>Specialized assistance for resolving technical issues related to internet service providers.</p>
             </div>
 
             <div
@@ -313,21 +336,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <h1 style={{ color: "black" }}>Non - Voice Support</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
-            </div>
-
-            <div
-              style={
-                isHovered
-                  ? { ...ServicescontainerStyle, ...hoverEffect }
-                  : ServicescontainerStyle
-              }
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <h1 style={{ color: "black" }}>Ticketing Service</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <FaLaptopCode size={40} color="#007BFF" />
+              <h1 style={{ color: "black" }}> Software/Hardware</h1>
+              <p style={{color:"black"}}> Comprehensive assistance with software installations, updates, and hardware maintenance.</p>
             </div>
             <div
               style={
@@ -338,8 +349,9 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+              <FaBox size={40} color="#007BFF" />
               <h1 style={{ color: "black" }}>Product-Related Queries</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{color:"black"}}>Solutions for any problems encountered with products to enhance customer satisfaction.</p>
             </div>
           </div>
         </div>
@@ -348,7 +360,7 @@ function App() {
 
         <div>
           <div>
-            <h2 style={{ textAlign: "center" }}>Telemarketing Services</h2>
+            <h2 style={{ textAlign: "center",color:"black" }}>Telemarketing Services</h2>
           </div>
 
           {/* SERVICES BOXES */}
@@ -362,8 +374,12 @@ function App() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
+<FaBuilding size={40} color="#007BFF" />
+
+              <FaPhoneVolume size={40} color="#007BFF" />
+
               <h1 style={{ color: "black" }}>Outbound Calling</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{ color: "black" }}>Proactive outreach to potential customers for sales and marketing of products and services.</p>
             </div>
 
             <div
@@ -376,7 +392,7 @@ function App() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <h1 style={{ color: "black" }}>Inbound/Outbound Calling</h1>
-              <p>This container has a hover effect with movement and shadow.</p>
+              <p style={{ color: "black" }}>Support for insurance inquiries and services through dedicated inbound and outbound call handling.</p>
             </div>
 
             <div
@@ -445,15 +461,17 @@ function App() {
           style={{
             display: "flex",
             flexDirection: "row",
-            border: "solid",
-            borderWidth: 2,
+            // border: "solid",
+            // borderWidth: 2,
             width: "100%",
             height: "100%",
           }}
         >
-          <div style={{ width: 600 }}>
+          <div style={{ width: 600,marginLeft:20 }}>
             <h1>Contact Us</h1>
             <h2>We’re Here to Help!</h2>
+            <label>We’re happy to answer any questions you may have and we help you determine which of our services best fit your needs.</label>
+
           </div>
           <div style={ContactcontainerStyle}>
             <h2 style={{ color: "black" }}>Get Your Free Quote</h2>
