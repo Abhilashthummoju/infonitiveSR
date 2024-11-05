@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import face from './images/face.png'
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,19 +10,19 @@ const Testimonials = () => {
       name: "John Doe",
       feedback:
         "Inofinitive SR has revolutionized our customer service process. The support team is highly professional and efficient.",
-      image: "https://via.placeholder.com/100",
+      image: "face",
     },
     {
       name: "Jane Smith",
       feedback:
         "The technical support we received was exceptional. The staff was knowledgeable and resolved our issues promptly.",
-      image: "https://via.placeholder.com/100",
+      image: "face",
     },
     {
       name: "Mark Johnson",
       feedback:
         "Thanks to Inofinitive SR, our telemarketing efforts have improved significantly. We are now reaching more clients than ever!",
-      image: "https://via.placeholder.com/100",
+      image: "face",
     },
   ];
 
@@ -102,7 +103,7 @@ const Testimonials = () => {
               style={testimonialCardStyle}
             >
               <img
-                src={testimonialsData[currentIndex].image}
+                src={face}
                 alt={testimonialsData[currentIndex].name}
                 style={imageStyle}
               />

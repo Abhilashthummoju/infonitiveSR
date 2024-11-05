@@ -1,4 +1,7 @@
 import React from 'react';
+import mission from './images/missin.webp'
+import vision from './images/vision.webp'
+import values from './images/values.webp'
 
 const AboutUs = () => {
   return (
@@ -12,7 +15,7 @@ const AboutUs = () => {
       <div style={contentSectionStyle}>
         <div style={contentCardStyle}>
           <img
-            src="https://via.placeholder.com/300" // Replace with your image URL
+            src={mission} // Replace with your image URL
             alt="Our Mission"
             style={imageStyle}
           />
@@ -24,7 +27,7 @@ const AboutUs = () => {
         </div>
         <div style={contentCardStyle}>
           <img
-            src="https://via.placeholder.com/300" // Replace with your image URL
+            src={vision} // Replace with your image URL
             alt="Our Vision"
             style={imageStyle}
           />
@@ -36,7 +39,7 @@ const AboutUs = () => {
         </div>
         <div style={contentCardStyle}>
           <img
-            src="https://via.placeholder.com/300" // Replace with your image URL
+            src={values} // Replace with your image URL
             alt="Our Values"
             style={imageStyle}
           />
