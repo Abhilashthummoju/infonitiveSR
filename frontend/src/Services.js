@@ -13,7 +13,7 @@ const Services = () =>{
       alignItems: "center",
       justifyContent: "center",
       // textAlign: "center",
-      background: "linear-gradient(to right, #4facfe, #00f2fe)", // Same gradient background
+      background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
       color: "white", // White text color
       padding: "30px", // Padding for sections
     };
@@ -39,7 +39,7 @@ const Services = () =>{
     };
      
     return(
-        <div id="services" style={{...sectionStyle,background:"white"}}>
+        <div id="services" style={{...sectionStyle}}>
         <h3 style={{color:"black"}}>What we provide</h3>
         <h1 style={{ marginTop: -11,color:"black" }}>Our Services</h1>
 

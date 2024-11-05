@@ -70,7 +70,7 @@ const Home =  () =>{
       
       const paragraphStyle = {
         margin: '10px 0',
-        color: '#d1d1d1',
+        color: 'black',
         fontSize: '0.95rem',
       };
 

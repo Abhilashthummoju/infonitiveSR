@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div style={pageStyle}>
+    <div id="about" style={pageStyle}>
       <div style={heroSectionStyle}>
         <h1 style={heroTitleStyle}>Welcome to Inofinitive SR</h1>
         <p style={heroSubtitleStyle}>
@@ -63,7 +63,7 @@ const pageStyle = {
 
 const heroSectionStyle = {
   background: 'linear-gradient(135deg, #e0f7fa, #b2dfdb)',
-  color: '#004d40',
+  color: 'black',
   padding: '80px 20px',
   borderRadius: '10px',
   margin: '20px auto',
@@ -120,22 +120,10 @@ const cardHeadingStyle = {
 
 const cardTextStyle = {
   fontSize: '1rem',
-  color: '#666',
+  color: 'black',
   lineHeight: '1.6',
 };
 
-const footerStyle = {
-  marginTop: '60px',
-  padding: '20px 0',
-  borderTop: '1px solid #ddd',
-  color: '#777',
-  fontSize: '0.9rem',
-  animation: 'fadeIn 2s ease-in-out',
-};
-
-const footerTextStyle = {
-  margin: '0',
-};
 
 // Injecting Keyframes for Animations
 const styleSheet = document.styleSheets[0];

@@ -57,7 +57,7 @@ const pageStyle = {
 const titleStyle = {
   fontSize: '2.5rem',
   margin: '20px 0',
-  color: '#00796b',
+  color: 'black',
   textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
 };
 
@@ -91,7 +91,7 @@ const faqHeaderStyle = {
 
 const questionStyle = {
   fontSize: '1.5rem',
-  color: '#00796b',
+  color: 'black',
   margin: 0,
 };
 

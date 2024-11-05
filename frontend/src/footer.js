@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaLinkedin, FaPhone } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -18,31 +18,31 @@ const Footer = () => {
           <p style={paragraphStyle}>Email: support@inofinitive.com</p>
           <p style={paragraphStyle}>Phone: +91-1234567890</p>
           <div style={socialIconsStyle}>
-            <a
-              href="#"
-              style={iconStyle}
-              onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2) rotate(10deg)')}
-              onMouseLeave={(e) => (e.target.style.transform = 'scale(1) rotate(0deg)')}
-            >
+            <a href="#" style={iconStyle}>
               <FaInstagram />
             </a>
-            <a
-              href="#"
-              style={iconStyle}
-              onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2) rotate(10deg)')}
-              onMouseLeave={(e) => (e.target.style.transform = 'scale(1) rotate(0deg)')}
-            >
+            <a href="#" style={iconStyle}>
               <FaFacebook />
             </a>
-            <a
-              href="#"
-              style={iconStyle}
-              onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2) rotate(10deg)')}
-              onMouseLeave={(e) => (e.target.style.transform = 'scale(1) rotate(0deg)')}
-            >
+            <a href="#" style={iconStyle}>
               <FaLinkedin />
             </a>
           </div>
+        </div>
+        <div style={footerSectionStyle}>
+          <h3 style={headingStyle}>About Us</h3>
+          <p style={paragraphStyle}>
+            We are committed to providing exceptional services to our customers. Our team works tirelessly to ensure your satisfaction and success.
+          </p>
+        </div>
+      </div>
+      <div style={footerBottomStyle}>
+        <div style={contactInfoStyle}>
+          <FaPhone style={{ ...phoneIconStyle, transform: 'rotate(180deg)' }} /> {/* Rotate phone icon */}
+          <span style={callTextStyle}>Call us at anytime: +91-1234567890</span>
+        </div>
+        <div style={emailInfoStyle}>
+          <p style={footerTextStyle}>Email: support@inofinitive.com</p>
         </div>
       </div>
       <div style={footerBottomStyle}>
@@ -54,14 +54,14 @@ const Footer = () => {
 
 // CSS Styles
 const footerStyle = {
-  backgroundColor: '#fafafa',
+  backgroundColor: '#F5F5F5',
   color: '#444',
   padding: '50px 20px',
-  fontFamily: "'Roboto', sans-serif",
+  fontFamily: "'Arial', sans-serif", // Changed to a more professional font
   textAlign: 'center',
   position: 'relative',
   overflow: 'hidden',
-  boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.2)',
   animation: 'fadeIn 1s ease-in-out',
 };
 
@@ -69,10 +69,9 @@ const footerContentStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
-  maxWidth: '1200px',
   margin: '0 auto',
   flexWrap: 'wrap',
-  gap: '50px',
+  gap: '20px',
 };
 
 const footerSectionStyle = {
@@ -85,14 +84,17 @@ const footerSectionStyle = {
   transform: 'translateY(20px)',
   animation: 'slideUp 0.8s ease forwards',
   opacity: '0',
+  height: '250px',
+  animationDelay: '0.2s', // Delay for staggered animation
 };
 
 const headingStyle = {
-  fontSize: '2.2rem',
+  fontSize: '2rem',
   marginBottom: '20px',
-  color: '#ff5722',
+  color: '#000',
   textTransform: 'uppercase',
   letterSpacing: '2px',
+  fontFamily: "'Times New Roman', sans-serif", // Consistent font choice
 };
 
 const listStyle = {
@@ -100,6 +102,7 @@ const listStyle = {
   padding: '0',
   color: '#555',
   lineHeight: '1.8',
+  animation: 'fadeIn 1s ease-in-out',
 };
 
 const listItemStyle = {
@@ -113,6 +116,7 @@ const paragraphStyle = {
   margin: '10px 0',
   color: '#666',
   fontSize: '1rem',
+  animation: 'fadeIn 1s ease-in-out',
 };
 
 const socialIconsStyle = {
@@ -131,7 +135,7 @@ const iconStyle = {
 };
 
 const footerBottomStyle = {
-  marginTop: '40px',
+  // marginTop: '40px',
   padding: '10px 0',
   borderTop: '1px solid #ddd',
   color: '#888',
@@ -142,6 +146,32 @@ const footerBottomStyle = {
 const footerTextStyle = {
   margin: '0',
   animation: 'fadeIn 2s ease-in-out',
+};
+
+const contactInfoStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  // marginBottom: '20px',
+};
+
+const phoneIconStyle = {
+  fontSize: '1.5rem',
+  marginRight: '10px',
+  color: '#ff5722',
+  transition: 'transform 0.3s', // Add a transform transition for animations
+};
+
+const callTextStyle = {
+  fontSize: '1rem',
+  color: '#666',
+  animation: 'fadeIn 1s ease-in-out',
+};
+
+const emailInfoStyle = {
+  textAlign: 'right',
+  marginTop: -20,
+  marginRight: 10
 };
 
 // Injecting Keyframes for Animations
@@ -157,6 +187,13 @@ styleSheet.insertRule(`
   @keyframes slideUp {
     from { transform: translateY(40px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+  }
+`, styleSheet.cssRules.length);
+
+// Adding animation for the entire footer
+styleSheet.insertRule(`
+  footer {
+    animation: fadeIn 1.2s ease-in-out;
   }
 `, styleSheet.cssRules.length);
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaLaptopCode, FaHeadset, FaTicketAlt, FaComments, FaWifi,FaBox,FaPhoneVolume,FaBuilding } from "react-icons/fa"; // Importing relevant icons
 
 const ContactUs = () =>{
     const [isHovered, setIsHovered] = React.useState(false);
@@ -19,13 +18,22 @@ const ContactUs = () =>{
       alignItems: "center",
       justifyContent: "center",
       // textAlign: "center",
-      background: "linear-gradient(to right, #4facfe, #00f2fe)", // Same gradient background
+      background: "white", // Same gradient background
       color: "white", // Whie text color
       padding: "30px", // Padding for sections
     };
   
+    // "linear-gradient(to right, #4facfe, #00f2fe)"
   
   
+    const tempDiv = {
+      background: "linear-gradient(to right, #4facfe, #00f2fe)",
+      width: "95%",
+      height: "95%",
+      borderRadius: 25,
+      padding: 10,
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+    }
     const ContactcontainerStyle = {
       backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background
       borderRadius: "15px",
@@ -74,6 +82,7 @@ const ContactUs = () =>{
   
     return(
         <div id="contact" style={sectionStyle}>
+          <div style={tempDiv}>
         <div
           style={{
             display: "flex",
@@ -137,6 +146,7 @@ const ContactUs = () =>{
     </button>
             <></>
           </div>
+        </div>
         </div>
       </div>
     )
