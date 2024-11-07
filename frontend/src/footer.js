@@ -3,7 +3,6 @@ import { FaInstagram, FaWhatsapp, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
-  // Define media queries for responsiveness
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
 
@@ -23,7 +22,7 @@ const Footer = () => {
           <p style={paragraphStyle}>Email: support@inofinitive.com</p>
           <p style={paragraphStyle}>Phone: +91-7416305104</p>
           <div style={socialIconsStyle}>
-            <a href="https://www.instagram.com/inofinitive/?igsh=MTRmc3BkeGF2ems4Nw%3D%3D#" style={iconStyle}>
+            <a href="https://www.instagram.com/inofinitive/" style={iconStyle}> 
               <FaInstagram />
             </a>
             <a href="https://whatsapp.com/channel/0029VaggzeF7Noa0MshelR00" style={iconStyle}>
@@ -41,164 +40,145 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <div style={footerBottomStyle}>
+      <div style={footerBottomWrapperStyle(isMobile)}>
         <div style={contactInfoStyle}>
-          <FaPhone style={{ ...phoneIconStyle, transform: 'rotate(180deg)' }} />
+          <FaPhone style={phoneIconStyle} />
           <span style={callTextStyle}>Call us at anytime: +91-7416305104</span>
         </div>
         <div style={emailInfoStyle}>
           <p style={footerTextStyle}>Email: support@inofinitive.com</p>
         </div>
       </div>
-      <div style={footerBottomStyle}>
+      <div style={{...footerBottomWrapperStyle(isMobile),textAlign:"center",justifyContent:"center",display:"flex"}}>
         <p style={footerTextStyle}>&copy; 2024 Inofinitive SR. All rights reserved.</p>
       </div>
     </footer>
   );
 };
 
-// CSS Styles
+// Enhanced CSS Styles with White and Blue Theme
+
 const footerStyle = {
-  backgroundColor: '#F5F5F5',
-  color: '#444',
-  padding: '50px 20px',
-  fontFamily: "'Arial', sans-serif", // Changed to a more professional font
+  backgroundColor: '#ffffff', // White background for footer
+  color: '#1f3a68', // Dark blue text color for readability
+  padding: '60px 30px',
+  fontFamily: "'Arial', sans-serif",
   textAlign: 'center',
-  position: 'relative',
-  overflow: 'hidden',
-  boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.2)',
-  animation: 'fadeIn 1s ease-in-out',
+  boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)',
+  animation: 'fadeIn 1.5s ease-in-out',
+  transition: 'background-color 0.3s ease', // Smooth background color transition
 };
 
 const footerContentStyle = (isMobile) => ({
   display: 'flex',
-  flexDirection: isMobile ? 'column' : 'row', // Stack vertically on mobile
+  flexDirection: isMobile ? 'column' : 'row',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   margin: '0 auto',
+  gap: '30px',
+  paddingBottom: '30px', // Space between sections and bottom
   flexWrap: 'wrap',
-  gap: '20px',
 });
 
 const footerSectionStyle = (isMobile) => ({
   flex: isMobile ? '1' : '0.3',
-  minWidth: '300px',
+  minWidth: '280px',
   padding: '20px',
-  borderRadius: '12px',
-  backgroundColor: '#ffffff',
-  boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-  transform: 'translateY(20px)',
-  animation: 'slideUp 0.8s ease forwards',
-  opacity: '0',
-  height: isMobile ? 'auto' : '250px',
-  animationDelay: '0.2s', // Delay for staggered animation
+  borderRadius: '15px',
+  backgroundColor: '#ffffff', // White background for sections
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', // More noticeable shadow for sections
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  minHeight: '250px',
+  hover: 'transform: scale(1.05)', // Hover effect for interactive elements
 });
 
 const headingStyle = {
-  fontSize: '2rem',
+  fontSize: '1.7rem',
   marginBottom: '20px',
-  color: '#000',
+  color: '#1f3a68', // Deep blue color for headings
   textTransform: 'uppercase',
-  letterSpacing: '2px',
-  fontFamily: "'Times New Roman', sans-serif", // Consistent font choice
+  letterSpacing: '1.5px',
+  fontWeight: '600',
+  transition: 'color 0.3s ease', // Smooth transition on hover
 };
 
 const listStyle = {
   listStyle: 'none',
   padding: '0',
-  color: '#555',
-  lineHeight: '1.8',
-  animation: 'fadeIn 1s ease-in-out',
+  color: '#5a6e8f', // Soft blue for list items
+  marginTop: '15px',
 };
 
 const listItemStyle = {
   margin: '12px 0',
   fontSize: '1.1rem',
-  transition: 'color 0.3s',
   cursor: 'pointer',
+  transition: 'color 0.3s ease',
 };
 
 const paragraphStyle = {
-  margin: '10px 0',
-  color: '#666',
+  margin: '15px 0',
+  color: '#777', // Light grey for text
   fontSize: '1rem',
-  animation: 'fadeIn 1s ease-in-out',
+  lineHeight: '1.6',
 };
 
 const socialIconsStyle = {
   display: 'flex',
   justifyContent: 'center',
-  gap: '25px',
+  gap: '20px',
   marginTop: '20px',
 };
 
 const iconStyle = {
-  fontSize: '2.5rem',
-  color: '#ff5722',
-  transition: 'transform 0.4s, color 0.3s',
-  cursor: 'pointer',
+  fontSize: '2rem',
+  color: '#1f3a68', // Blue color for icons
   textDecoration: 'none',
+  transition: 'color 0.3s ease',
 };
 
-const footerBottomStyle = {
-  padding: '10px 0',
-  borderTop: '1px solid #ddd',
-  color: '#888',
-  fontSize: '0.9rem',
-  letterSpacing: '0.8px',
-};
-
-const footerTextStyle = {
-  margin: '0',
-  animation: 'fadeIn 2s ease-in-out',
-};
+const footerBottomWrapperStyle = (isMobile) => ({
+  display: 'flex',
+  flexDirection: isMobile ? 'column' : 'row',
+  justifyContent: isMobile ? 'center' : 'space-between',
+  alignItems: 'center',
+  borderTop: '1px solid #e0e0e0', // Light grey border
+  padding: '20px 0',
+  marginTop: '20px',
+  textAlign: "center",
+  backgroundColor: '#f9f9f9', // Soft background color for bottom section
+});
 
 const contactInfoStyle = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
+  gap: '12px',
+  color: '#1f3a68', // Dark blue for contact text
+  fontWeight: '500',
 };
 
 const phoneIconStyle = {
-  fontSize: '1.5rem',
-  marginRight: '10px',
-  color: '#ff5722',
-  transition: 'transform 0.3s',
+  fontSize: '1.8rem',
 };
 
 const callTextStyle = {
-  fontSize: '1rem',
-  color: '#666',
-  animation: 'fadeIn 1s ease-in-out',
+  fontSize: '1.2rem',
+  color: '#5a6e8f', // Soft blue for contact text
+  textAlign: 'center',
 };
 
 const emailInfoStyle = {
-  textAlign: 'right',
-  marginTop: -20,
-  marginRight: 10,
+  textAlign: 'center',
+  marginTop: '10px',
 };
 
-// Injecting Keyframes for Animations
-const styleSheet = document.styleSheets[0];
-styleSheet.insertRule(`
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-`, styleSheet.cssRules.length);
-
-styleSheet.insertRule(`
-  @keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-`, styleSheet.cssRules.length);
-
-// Adding animation for the entire footer
-styleSheet.insertRule(`
-  footer {
-    animation: fadeIn 1.2s ease-in-out;
-  }
-`, styleSheet.cssRules.length);
+const footerTextStyle = {
+  margin: '0',
+  color: '#777', // Dark grey for footer text
+  fontSize: '0.9rem',
+  opacity: 0.8,
+  fontWeight: '400',
+};
 
 export default Footer;
