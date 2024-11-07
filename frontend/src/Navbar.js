@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquarePhone } from "@fortawesome/free-solid-svg-icons";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons"; // Importing down arrow icon
+import { faSquarePhone, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   const [isHeroSection, setIsHeroSection] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedSection, setSelectedSection] = useState("home"); // Track selected section
+  const [selectedSection, setSelectedSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,15 +31,14 @@ function Navbar() {
     zIndex: 1000,
     height: 50,
     transition: "background-color 0.3s, color 0.3s",
-    borderBottom: '0.01px solid #D6C0B3', 
-    paddingBottom: '20px',
-    borderColor: "blue"
+    borderBottom: "0.01px solid #D6C0B3",
+    paddingBottom: "20px",
   };
 
   const logoStyle = {
     fontSize: "1.7rem",
     fontWeight: "bold",
-    color: isHeroSection ? "black" : "black",
+    color: "black",
     marginLeft: 50,
   };
 
@@ -58,17 +56,17 @@ function Navbar() {
     fontSize: "1.4rem",
     marginLeft: 10,
     position: "relative",
-    fontFamily: 'Times New Roman',
-    backgroundColor: isSelected ? "blue" : "transparent", // Blue background for selected section
+    fontFamily: "Times New Roman",
+    backgroundColor: isSelected ? "blue" : "transparent",
     padding: "10px 15px",
-    borderRadius: "5px", // Slightly rounded corners for the selected section
+    borderRadius: "5px",
   });
 
   const callusat = {
     color: "white",
     fontSize: "1.4rem",
     fontWeight: "bold",
-    marginLeft: 160,
+    marginLeft: 120,
     width: 300,
     height: 50,
     background: "linear-gradient(to right, #4facfe, #00f2fe)",
@@ -88,7 +86,7 @@ function Navbar() {
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
     zIndex: 1000,
     display: isDropdownOpen ? "block" : "none",
-    width: "200px", // Set a fixed width for dropdown
+    width: "200px",
   };
 
   const dropdownItemStyle = {
@@ -97,14 +95,12 @@ function Navbar() {
     color: "black",
   };
 
-  const dropdownItemHoverStyle = {
-    backgroundColor: "#f0f0f0",
-  };
-
   const handleDropdownClick = (section) => {
     setIsDropdownOpen(false);
-    setSelectedSection(section.replace(/ /g, '').toLowerCase()); // Update selected section
-    document.getElementById(section.replace(/ /g, '').toLowerCase()).scrollIntoView({ behavior: "smooth" });
+    setSelectedSection(section.replace(/ /g, "").toLowerCase());
+    document
+      .getElementById(section.replace(/ /g, "").toLowerCase())
+      .scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -112,52 +108,97 @@ function Navbar() {
       <div style={logoStyle}>Inofinitive SR</div>
       <ul style={navLinksStyle}>
         {["Home", "About", "Services", "Contact"].map((item) => (
-          <li key={item}>
+          <li
+            key={item}
+            onMouseEnter={() => {
+              if (item === "Services") setIsDropdownOpen(true);
+            }}
+            onMouseLeave={() => {
+              if (item === "Services") setIsDropdownOpen(false);
+            }}
+          >
             <a
               href={`#${item.toLowerCase()}`}
-              style={linkStyle(selectedSection === item.toLowerCase())} // Use linkStyle function to determine styles
-              onMouseEnter={() => {
-                if (item === "Services") setIsDropdownOpen(true);
-              }}
-              onMouseLeave={() => {
-                if (item === "Services") setIsDropdownOpen(false);
-              }}
+              style={linkStyle(selectedSection === item.toLowerCase())}
               onClick={() => {
-                setSelectedSection(item.toLowerCase()); // Update selected section on click
+                setSelectedSection(item.toLowerCase());
               }}
             >
-              {item} {item === "Services" && <FontAwesomeIcon icon={faCaretDown} />} {/* Down arrow */}
+              {item} {item === "Services" && <FontAwesomeIcon icon={faCaretDown} />}
             </a>
-            {item === "Services" && (
-              <div
-                style={dropdownStyle}
-                onMouseEnter={() => setIsDropdownOpen(true)} // Keep dropdown open on hover
-                onMouseLeave={() => setIsDropdownOpen(false)} // Close on mouse leave
-              >
-                {["Customer Support", "Technical Support", "Telemarketing Services"].map(service => (
-                  <div
-                    key={service}
-                    style={dropdownItemStyle}
-                    onMouseEnter={(e) => (e.target.style = dropdownItemHoverStyle)}
-                    onMouseLeave={(e) => (e.target.style = dropdownItemStyle)}
-                    onClick={() => handleDropdownClick(service)} // Navigate to section on click
-                  >
-                    {service}
-                  </div>
-                ))}
+            {item === "Services" && isDropdownOpen && (
+              <div style={dropdownStyle}>
+                {["Customer Support", "Technical Support", "Telemarketing Services"].map(
+                  (service) => (
+                    <div
+                      key={service}
+                      style={dropdownItemStyle}
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => handleDropdownClick(service)}
+                    >
+                      {service}
+                    </div>
+                  )
+                )}
               </div>
             )}
           </li>
         ))}
       </ul>
       <div style={callusat}>
-        <FontAwesomeIcon
-          icon={faSquarePhone}
-          size="2x"
-          style={{ marginRight: "8px", marginLeft: "5px" }}
-        />
-        call us at : 0000000000
+        <FontAwesomeIcon icon={faSquarePhone} size="2x" style={{ marginRight: "8px", marginLeft: "5px" }} />
+        <label style={{ fontSize: 20 }}>call us at : 7416305104</label>
       </div>
+
+      {/* Media Queries for responsiveness */}
+      <style jsx="true">{`
+        @media (max-width: 768px) {
+          ${navbarStyle} {
+            padding: 15px 20px;
+            justify-content: space-between;
+          }
+          ${logoStyle} {
+            font-size: 1.5rem;
+            margin-left: 0;
+          }
+          ${navLinksStyle} {
+            display: none;
+          }
+          ${callusat} {
+            margin-left: 20px;
+            width: auto;
+          }
+        }
+        @media (max-width: 480px) {
+          ${navbarStyle} {
+            padding: 10px;
+          }
+          ${logoStyle} {
+            font-size: 1.2rem;
+          }
+          ${callusat} {
+            font-size: 1.2rem;
+            margin-left: 15px;
+          }
+          ${navLinksStyle} {
+            display: block;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: white;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          ${linkStyle()} {
+            font-size: 1.2rem;
+            padding: 8px 15px;
+          }
+          ${dropdownStyle} {
+            width: 180px;
+          }
+        }
+      `}</style>
     </nav>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import face from './images/face.png'
+import face from "./images/face.png";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,35 +51,67 @@ const Testimonials = () => {
     );
   };
 
-  const tempStyle = {
-    height: 500,
-    width: 500,
-    // backgroundColor: "red",
-    padding: 20,
-    borderRadius: 30,
-    marginLeft: 50,
-  };
 
   const container2Style = {
     display: "flex",
-    flexDirection:"row",
-    borderRadius:25,
-    width:"95%",
+    flexDirection: "row",
+    borderRadius: 25,
+    width: "95%",
     padding: 10,
-    alignItems:"center",
-    height:"95%",
-    background:"white",
+    alignItems: "center",
+    height: "95%",
+    background: "white",
     marginLeft: 25,
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
-}
+  };
 
 
+  const tempStyle = {
+    height: "auto", // Adjust to auto to fit content
+    width: "80%", // Width is more balanced for a centered look
+    maxWidth: "900px", // Prevents it from stretching too much on larger screens
+    padding: "40px",
+    borderRadius: "15px", // Slightly smaller border radius for modern look
+    marginLeft: "auto", // Centering the container
+    marginRight: "auto",
+    background: "linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5))",
+    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.15)", // Enhanced depth
+    animation: "fadeIn 1s ease-in-out",
+    transform: "scale(1.02)", // Slight zoom in for emphasis
+    transition: "transform 0.3s ease-in-out", // Smooth transition effect for hover
+  };
+  
+  const titleStyle = {
+    fontSize: "3.2rem", // Larger title for emphasis
+    fontWeight: "bold",
+    margin: "20px 0",
+    color: "#00796b",
+    textShadow: "4px 4px 8px rgba(0, 0, 0, 0.2)", // Deeper shadow for 3D effect
+    letterSpacing: "2px", // More pronounced letter spacing
+    textAlign: "center",
+    fontFamily: "'Roboto', sans-serif", // More modern font
+    animation: "slideUp 1s ease-out",
+  };
+  
+  const paragraphStyle = {
+    fontSize: "1.2rem", // Slightly larger text for better readability
+    color: "#444", // Slightly darker text for contrast
+    lineHeight: "1.8", // More space between lines for easier reading
+    margin: "20px 0",
+    textAlign: "justify",
+    fontFamily: "'Arial', sans-serif",
+    animation: "fadeIn 1.5s ease-out",
+    opacity: 0,
+    animationFillMode: "forwards", // Ensures animation is persistent
+    transform: "translateY(10px)", // Starts slightly lower for a smoother fade
+  };
+  
   return (
     <div style={pageStyle}>
       <div style={container2Style}>
         <div style={tempStyle}>
           <h1 style={titleStyle}>What Our Clients Say</h1>
-          <p>
+          <p style={paragraphStyle}>
             At Inofinitive SR, we transform customer experiences through
             dedicated support and exceptional service. Our integrated voice and
             non-voice customer support has boosted client satisfaction by 30%,
@@ -147,6 +179,36 @@ const Testimonials = () => {
             }
           }
           
+         @keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); // Starts below and fades in
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hoverScale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05); // Slight scale effect on hover for more engagement
+  }
+}
           @keyframes slideRight {
             from {
               transform: translateX(-100%);
@@ -189,6 +251,8 @@ const navigationContainerStyle = {
   width: 700,
   marginLeft: 100,
 };
+
+
 
 const navButtonStyle = {
   background: "linear-gradient(45deg, #2193b0, #6dd5ed)",

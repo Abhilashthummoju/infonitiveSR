@@ -4,16 +4,16 @@ import LogoImage from "./images/home-font.png";
 const TempHome = () => {
   const heroSectionStyle = {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
-    color: "#343a40", // Dark grey text for contrast
+    color: "#343a40",
     textAlign: "center",
     position: "relative",
-    paddingTop: 60,
-    overflow: "hidden", // Prevent overflow from scrolling text
+    // paddingTop: 60,
+    overflow: "hidden",
   };
 
   const servicesBarStyle = {
@@ -23,26 +23,26 @@ const TempHome = () => {
     bottom: 60,
     left: 0,
     width: "100%",
-    background: "#ffffff", // White background for the services bar
+    background: "#ffffff",
     padding: "15px 0",
-    borderRadius: "25px 25px 0 0", // Rounded top corners
-    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)", // Light shadow for depth
-    transform: "skewY(-5deg)", // Skewing effect for a modern look
+    borderRadius: "25px 25px 0 0",
+    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+    transform: "skewY(-5deg)",
     zIndex: 1,
-    animation: "fadeIn 1s", // Fade-in animation
+    animation: "fadeIn 1s",
   };
 
   const scrollingTextStyle = {
     display: "inline-block",
     animation: "scroll 20s linear infinite",
-    fontFamily: "'Roboto', sans-serif", // Clean, modern font
-    fontSize: "2rem", // Font size for readability
-    color: "#343a40", // Dark text color
+    fontFamily: "'Roboto', sans-serif",
+    fontSize: "2rem",
+    color: "#343a40",
     fontWeight: "bold",
-    paddingLeft: "100%", // Start from off-screen
+    paddingLeft: "100%",
     whiteSpace: "nowrap",
-    textShadow: "1px 1px 3px rgba(0, 0, 0, 0.1)", // Subtle text shadow
-    letterSpacing: "1px", // Spacing between letters
+    textShadow: "1px 1px 3px rgba(0, 0, 0, 0.1)",
+    letterSpacing: "1px",
   };
 
   const descriptionStyle = {
@@ -60,40 +60,15 @@ const TempHome = () => {
   const imageStyle = {
     height: 400,
     width: 400,
-    animation: "scaleUpDown 3s ease-in-out infinite", // Add animation to image
+    animation: "scaleUpDown 3s ease-in-out infinite",
   };
 
   return (
     <div id="home" style={heroSectionStyle}>
-      <div style={{ display: "flex", flexDirection: "row", marginTop: -80, marginLeft: -100, gap: 80 }}>
-        <div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <label
-              style={{
-                color: "#007bff",
-                fontFamily: "'Merriweather', serif",
-                fontSize: 70,
-                fontWeight: "bold",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              Welcome to Inofinitive SR!
-            </label>
-            <label
-              style={{
-                color: "#007bff",
-                fontSize: 50,
-                marginTop: 10,
-                fontFamily: "'Merriweather', serif",
-                fontWeight: "bold",
-                textShadow: "1px 1px 3px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              Where Support Meets Success
-            </label>
-          </div>
-
-          {/* Company Description */}
+      {/* <div className="content-wrapper"> */}
+        <div className="text-container">
+          <label className="heading">Welcome to Inofinitive SR!</label><br></br>
+          <label className="sub-heading">Where Support Meets Success</label>
           <p style={descriptionStyle}>
             At Inofinitive SR, we are dedicated to providing exceptional support
             and services to our clients. Our team of professionals is committed
@@ -105,7 +80,7 @@ const TempHome = () => {
           </p>
         </div>
         <img src={LogoImage} alt="logo" style={imageStyle} />
-      </div>
+      {/* </div> */}
       <div style={servicesBarStyle}>
         <div style={scrollingTextStyle}>
           <span>🌟 Customer Support | </span>
@@ -126,10 +101,10 @@ const TempHome = () => {
         {`
                     @keyframes scroll {
                         0% {
-                            transform: translateX(0); // Starts from the right edge
+                            transform: translateX(0);
                         }
                         100% {
-                            transform: translateX(-100%); // Moves to the left edge
+                            transform: translateX(-100%);
                         }
                     }
                     @keyframes fadeIn {
@@ -142,11 +117,77 @@ const TempHome = () => {
                     }
                     @keyframes scaleUpDown {
                         0%, 100% {
-                            transform: scale(1); // Original size
+                            transform: scale(1);
                         }
                         50% {
-                            transform: scale(1.1); // Scale up by 10%
+                            transform: scale(1.1);
                         }
+                    }
+
+                    /* Responsive Styles */
+                    .content-wrapper {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      justify-content: center;
+                      gap: 20px;
+                      padding: 20px;
+                    }
+
+                    .text-container {
+                      text-align: center;
+                    }
+
+                    .heading {
+                      color: #007bff;
+                      font-family: 'Merriweather', serif;
+                      font-size: 2.5rem;
+                      font-weight: bold;
+                      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .sub-heading {
+                      color: #007bff;
+                      font-size: 1.8rem;
+                      margin-top: 10px;
+                      font-family: 'Merriweather', serif;
+                      font-weight: bold;
+                      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+                    }
+
+                    /* Media Queries for Responsiveness */
+                    @media (max-width: 768px) {
+                      .heading {
+                        font-size: 2rem;
+                      }
+                      .sub-heading {
+                        font-size: 1.5rem;
+                      }
+                      .content-wrapper {
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 10px;
+                      }
+                      .text-container {
+                        margin-top: 10px;
+                      }
+                      img {
+                        width: 80%;
+                        height: auto;
+                      }
+                    }
+
+                    @media (max-width: 480px) {
+                      .heading {
+                        font-size: 1.5rem;
+                      }
+                      .sub-heading {
+                        font-size: 1.2rem;
+                      }
+                      img {
+                        width: 70%;
+                        height: auto;
+                      }
                     }
                 `}
       </style>

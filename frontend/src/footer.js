@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaInstagram, FaFacebook, FaLinkedin, FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaLinkedin, FaPhone } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,13 +16,13 @@ const Footer = () => {
         <div style={footerSectionStyle}>
           <h3 style={headingStyle}>Contact Us</h3>
           <p style={paragraphStyle}>Email: support@inofinitive.com</p>
-          <p style={paragraphStyle}>Phone: +91-1234567890</p>
+          <p style={paragraphStyle}>Phone: +91-7416305104</p>
           <div style={socialIconsStyle}>
-            <a href="#" style={iconStyle}>
+            <a href="https://www.instagram.com/inofinitive/?igsh=MTRmc3BkeGF2ems4Nw%3D%3D#" style={iconStyle}>
               <FaInstagram />
             </a>
-            <a href="#" style={iconStyle}>
-              <FaFacebook />
+            <a href="https://whatsapp.com/channel/0029VaggzeF7Noa0MshelR00" style={iconStyle}>
+              <FaWhatsapp />
             </a>
             <a href="#" style={iconStyle}>
               <FaLinkedin />
@@ -39,7 +39,7 @@ const Footer = () => {
       <div style={footerBottomStyle}>
         <div style={contactInfoStyle}>
           <FaPhone style={{ ...phoneIconStyle, transform: 'rotate(180deg)' }} /> {/* Rotate phone icon */}
-          <span style={callTextStyle}>Call us at anytime: +91-1234567890</span>
+          <span style={callTextStyle}>Call us at anytime: +91-7416305104</span>
         </div>
         <div style={emailInfoStyle}>
           <p style={footerTextStyle}>Email: support@inofinitive.com</p>
