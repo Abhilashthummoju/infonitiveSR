@@ -1,11 +1,16 @@
 import React from 'react';
 import { FaInstagram, FaWhatsapp, FaLinkedin, FaPhone } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
+  // Define media queries for responsiveness
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+
   return (
     <footer style={footerStyle}>
-      <div style={footerContentStyle}>
-        <div style={footerSectionStyle}>
+      <div style={footerContentStyle(isMobile)}>
+        <div style={footerSectionStyle(isMobile)}>
           <h3 style={headingStyle}>Our Services</h3>
           <ul style={listStyle}>
             <li style={listItemStyle}>Customer Support</li>
@@ -13,7 +18,7 @@ const Footer = () => {
             <li style={listItemStyle}>Telemarketing Services</li>
           </ul>
         </div>
-        <div style={footerSectionStyle}>
+        <div style={footerSectionStyle(isMobile)}>
           <h3 style={headingStyle}>Contact Us</h3>
           <p style={paragraphStyle}>Email: support@inofinitive.com</p>
           <p style={paragraphStyle}>Phone: +91-7416305104</p>
@@ -29,7 +34,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div style={footerSectionStyle}>
+        <div style={footerSectionStyle(isMobile)}>
           <h3 style={headingStyle}>About Us</h3>
           <p style={paragraphStyle}>
             We are committed to providing exceptional services to our customers. Our team works tirelessly to ensure your satisfaction and success.
@@ -38,7 +43,7 @@ const Footer = () => {
       </div>
       <div style={footerBottomStyle}>
         <div style={contactInfoStyle}>
-          <FaPhone style={{ ...phoneIconStyle, transform: 'rotate(180deg)' }} /> {/* Rotate phone icon */}
+          <FaPhone style={{ ...phoneIconStyle, transform: 'rotate(180deg)' }} />
           <span style={callTextStyle}>Call us at anytime: +91-7416305104</span>
         </div>
         <div style={emailInfoStyle}>
@@ -65,17 +70,18 @@ const footerStyle = {
   animation: 'fadeIn 1s ease-in-out',
 };
 
-const footerContentStyle = {
+const footerContentStyle = (isMobile) => ({
   display: 'flex',
+  flexDirection: isMobile ? 'column' : 'row', // Stack vertically on mobile
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   margin: '0 auto',
   flexWrap: 'wrap',
   gap: '20px',
-};
+});
 
-const footerSectionStyle = {
-  flex: '1',
+const footerSectionStyle = (isMobile) => ({
+  flex: isMobile ? '1' : '0.3',
   minWidth: '300px',
   padding: '20px',
   borderRadius: '12px',
@@ -84,9 +90,9 @@ const footerSectionStyle = {
   transform: 'translateY(20px)',
   animation: 'slideUp 0.8s ease forwards',
   opacity: '0',
-  height: '250px',
+  height: isMobile ? 'auto' : '250px',
   animationDelay: '0.2s', // Delay for staggered animation
-};
+});
 
 const headingStyle = {
   fontSize: '2rem',
@@ -135,7 +141,6 @@ const iconStyle = {
 };
 
 const footerBottomStyle = {
-  // marginTop: '40px',
   padding: '10px 0',
   borderTop: '1px solid #ddd',
   color: '#888',
@@ -152,14 +157,13 @@ const contactInfoStyle = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-start',
-  // marginBottom: '20px',
 };
 
 const phoneIconStyle = {
   fontSize: '1.5rem',
   marginRight: '10px',
   color: '#ff5722',
-  transition: 'transform 0.3s', // Add a transform transition for animations
+  transition: 'transform 0.3s',
 };
 
 const callTextStyle = {
@@ -171,7 +175,7 @@ const callTextStyle = {
 const emailInfoStyle = {
   textAlign: 'right',
   marginTop: -20,
-  marginRight: 10
+  marginRight: 10,
 };
 
 // Injecting Keyframes for Animations

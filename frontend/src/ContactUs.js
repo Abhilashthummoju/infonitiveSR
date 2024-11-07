@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { useMediaQuery } from 'react-responsive';
 
 const ContactUs = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -26,7 +27,7 @@ const ContactUs = () => {
         const serviceID = 'service_f5s2f3r';
         const templateID = 'template_67u4k0g';
         const userID = 'DE7l6B5A8yl5l0LIH';
-console.log("ABHI",formData)
+
         emailjs
             .send(serviceID, templateID, formData, userID)
             .then((response) => {
@@ -109,21 +110,28 @@ console.log("ABHI",formData)
         width: 170,
     };
 
+    // Media Queries using react-responsive
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+    const isDesktop = useMediaQuery({ minWidth: 1025 });
+
     return (
         <div id="contact" style={sectionStyle}>
             <div style={tempDiv}>
                 <div
                     style={{
                         display: "flex",
-                        flexDirection: "row",
+                        flexDirection: isMobile ? "column" : "row",
                         width: "100%",
                         height: "100%",
                     }}
                 >
-                    <div style={{ width: 600, marginLeft: 20 }}>
+                    <div style={{ width: isMobile ? "100%" : "600px", marginLeft: isMobile ? 0 : 20, textAlign: isMobile ? "center" : "left" }}>
                         <h1 style={{ color: "black" }}>Contact Us</h1>
                         <h2 style={{ color: "black" }}>We’re Here to Help!</h2>
-                        <label style={{ color: "black" }}>We’re happy to answer any questions you may have and we help you determine which of our services best fit your needs.</label>
+                        <label style={{ color: "black" }}>
+                            We’re happy to answer any questions you may have and we help you determine which of our services best fit your needs.
+                        </label>
                     </div>
                     <div style={ContactcontainerStyle}>
                         <h2 style={{ color: "black" }}>Get Your Free Quote</h2>

@@ -1,19 +1,24 @@
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
 import LogoImage from "./images/home-font.png";
 
 const TempHome = () => {
+  // Responsive breakpoints
+  const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const heroSectionStyle = {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: isMobile ? "column" : "row",
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
     color: "#343a40",
-    // textAlign: "center",
     position: "relative",
     overflow: "hidden",
-    padding: "2%"
+    padding: isMobile ? "5%" : "2%",
   };
 
   const servicesBarStyle = {
@@ -35,7 +40,7 @@ const TempHome = () => {
     display: "inline-block",
     animation: "scroll 20s linear infinite",
     fontFamily: "'Roboto', sans-serif",
-    fontSize: "1.5vw",
+    fontSize: isMobile ? "2vw" : "1.5vw",
     color: "#343a40",
     fontWeight: "bold",
     paddingLeft: "100%",
@@ -45,31 +50,46 @@ const TempHome = () => {
   };
 
   const descriptionStyle = {
-    marginTop: "2%",
-    maxWidth: "60%",
-    padding: "0 5%",
-    fontSize: "1.2vw",
+    marginTop: "1%",
+    maxWidth: isDesktop ? "80%" : "90%",
+    padding: "2%",
+    fontSize: isMobile ? "3vw" : "1.2vw",
     lineHeight: "1.6",
     color: "#343a40",
     fontFamily: "'Merriweather', serif",
     textAlign: "center",
     textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)",
+    borderTop: "1px solid #e0e0e0",
+    borderBottom: "1px solid #e0e0e0",
+    paddingTop: "2%",
+    paddingBottom: "2%",
   };
 
   const imageStyle = {
-    height: "30vw",
-    width: "30vw",
+    height: isMobile ? "50vw" : "30vw",
+    width: isMobile ? "50vw" : "30vw",
     maxWidth: "80%",
     animation: "scaleUpDown 3s ease-in-out infinite",
+    marginRight: isMobile ? "0" : "5%",
   };
-
 
   const textContainer = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+    marginRight: isMobile ? "0" : "5%",
+    padding: "2%",
+    background: "white", // Blue gradient
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+    borderRadius: "15px",
+    // border: "2px solid #007bff", // Blue border
+    backdropFilter: "blur(10px)",
+    maxWidth: "90%",
+    position: "relative",
+    overflow: "hidden",
+    animation: "fadeIn 1.5s ease-in-out",
+  };
 
   return (
     <div id="home" style={heroSectionStyle}>
@@ -113,22 +133,33 @@ const TempHome = () => {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
           }
+          @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+          }
 
           .heading {
-            color: #007bff;
+            color: #007bff; /* Blue text color */
             font-family: 'Merriweather', serif;
-            font-size: 2.5vw;
+            font-size: ${isMobile ? "4vw" : "2.5vw"};
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(90deg, #007bff, #00c0ff); /* Blue gradient text */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
 
           .sub-heading {
-            color: #007bff;
-            font-size: 2vw;
-            margin-top: 1%;
+            color: #007bff; /* Blue text color */
+            font-size: ${isMobile ? "3.5vw" : "2vw"};
+            margin-top: 0.5%;
             font-family: 'Merriweather', serif;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(90deg, #00c0ff, #007bff); /* Blue gradient text */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0 3%;
           }
         `}
       </style>

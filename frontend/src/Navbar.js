@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePhone, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { useMediaQuery } from "react-responsive"; // Importing react-responsive hook
 
 function Navbar() {
   const [isHeroSection, setIsHeroSection] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedSection, setSelectedSection] = useState("home");
+
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isSmallScreen = useMediaQuery({ maxWidth: 480 });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +27,7 @@ function Navbar() {
     width: "100%",
     top: 0,
     left: 0,
-    padding: "15px 30px",
+    padding: isMobile ? "10px 15px" : "15px 30px",
     display: "flex",
     alignItems: "center",
     backgroundColor: isHeroSection ? "#F5F5F5" : "white",
@@ -32,28 +36,28 @@ function Navbar() {
     height: 50,
     transition: "background-color 0.3s, color 0.3s",
     borderBottom: "0.01px solid #D6C0B3",
-    paddingBottom: "20px",
+    paddingBottom: isMobile ? "10px" : "20px",
   };
 
   const logoStyle = {
-    fontSize: "1.7rem",
+    fontSize: isSmallScreen ? "1.2rem" : isMobile ? "1.5rem" : "1.7rem",
     fontWeight: "bold",
     color: "black",
-    marginLeft: 50,
+    marginLeft: isSmallScreen ? 15 : isMobile ? 0 : 50,
   };
 
   const navLinksStyle = {
     listStyle: "none",
-    display: "flex",
+    display: isMobile ? "none" : "flex",
     gap: "20px",
-    marginLeft: 260,
+    marginLeft: isMobile ? 0 : 260,
     padding: 0,
   };
 
   const linkStyle = (isSelected) => ({
     color: isSelected ? "white" : isHeroSection ? "black" : "black",
     textDecoration: "none",
-    fontSize: "1.4rem",
+    fontSize: isSmallScreen ? "1.2rem" : "1.4rem",
     marginLeft: 10,
     position: "relative",
     fontFamily: "Times New Roman",
@@ -64,10 +68,10 @@ function Navbar() {
 
   const callusat = {
     color: "white",
-    fontSize: "1.4rem",
+    fontSize: isSmallScreen ? "1.2rem" : "1.4rem",
     fontWeight: "bold",
-    marginLeft: 120,
-    width: 300,
+    marginLeft: isMobile ? 20 : 120,
+    width: isMobile ? "auto" : 300,
     height: 50,
     background: "linear-gradient(to right, #4facfe, #00f2fe)",
     display: "flex",
@@ -147,58 +151,8 @@ function Navbar() {
       </ul>
       <div style={callusat}>
         <FontAwesomeIcon icon={faSquarePhone} size="2x" style={{ marginRight: "8px", marginLeft: "5px" }} />
-        <label style={{ fontSize: 20 }}>call us at : 7416305104</label>
+        <label style={{ fontSize: isSmallScreen ? 16 : 20 }}>call us at : 7416305104</label>
       </div>
-
-      {/* Media Queries for responsiveness */}
-      <style jsx="true">{`
-        @media (max-width: 768px) {
-          ${navbarStyle} {
-            padding: 15px 20px;
-            justify-content: space-between;
-          }
-          ${logoStyle} {
-            font-size: 1.5rem;
-            margin-left: 0;
-          }
-          ${navLinksStyle} {
-            display: none;
-          }
-          ${callusat} {
-            margin-left: 20px;
-            width: auto;
-          }
-        }
-        @media (max-width: 480px) {
-          ${navbarStyle} {
-            padding: 10px;
-          }
-          ${logoStyle} {
-            font-size: 1.2rem;
-          }
-          ${callusat} {
-            font-size: 1.2rem;
-            margin-left: 15px;
-          }
-          ${navLinksStyle} {
-            display: block;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: white;
-            width: 200px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          }
-          ${linkStyle()} {
-            font-size: 1.2rem;
-            padding: 8px 15px;
-          }
-          ${dropdownStyle} {
-            width: 180px;
-          }
-        }
-      `}</style>
     </nav>
   );
 }

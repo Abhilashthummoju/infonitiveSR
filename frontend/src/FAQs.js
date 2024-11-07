@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive'; // Import react-responsive
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -26,15 +27,19 @@ const FAQs = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  // Use react-responsive to handle responsiveness
+  const isMobile = useMediaQuery({ maxWidth: 768 }); // For mobile devices
+  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 }); // For tablets
+
   return (
     <div style={pageStyle}>
       <h1 style={titleStyle}>Frequently Asked Questions</h1>
       <div style={faqsContainerStyle}>
         {faqsData.map((faq, index) => (
-          <div key={index} style={faqCardStyle}>
+          <div key={index} style={faqCardStyle(isMobile)}>
             <div onClick={() => toggleFAQ(index)} style={faqHeaderStyle}>
-              <h2 style={questionStyle}>{faq.question}</h2>
-              <span style={iconStyle(activeIndex === index)}>+</span>
+              <h2 style={questionStyle(isMobile)}>{faq.question}</h2>
+              <span style={iconStyle(activeIndex === index, isMobile)}>+</span>
             </div>
             {activeIndex === index && <p style={answerStyle}>{faq.answer}</p>}
           </div>
@@ -68,7 +73,7 @@ const faqsContainerStyle = {
   animation: 'fadeInUp 1.5s ease-in-out',
 };
 
-const faqCardStyle = {
+const faqCardStyle = (isMobile) => ({
   backgroundColor: '#ffffff',
   borderRadius: '10px',
   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
@@ -76,7 +81,8 @@ const faqCardStyle = {
   transition: 'transform 0.3s, box-shadow 0.3s',
   overflow: 'hidden',
   cursor: 'pointer',
-};
+  padding: isMobile ? '10px' : '20px', // Mobile-friendly padding
+});
 
 const faqHeaderStyle = {
   padding: '15px 20px',
@@ -89,14 +95,14 @@ const faqHeaderStyle = {
   },
 };
 
-const questionStyle = {
-  fontSize: '1.5rem',
+const questionStyle = (isMobile) => ({
+  fontSize: isMobile ? '1.2rem' : '1.5rem', // Adjust font size for mobile
   color: 'black',
   margin: 0,
-};
+});
 
-const iconStyle = (isActive) => ({
-  fontSize: '1.5rem',
+const iconStyle = (isActive, isMobile) => ({
+  fontSize: isMobile ? '1.2rem' : '1.5rem', // Adjust icon size for mobile
   color: isActive ? '#00796b' : '#aaa',
   transition: 'transform 0.3s',
   transform: isActive ? 'rotate(45deg)' : 'rotate(0deg)',

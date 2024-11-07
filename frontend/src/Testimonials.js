@@ -34,10 +34,6 @@ const Testimonials = () => {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
-  //   const handleNext = () => {
-  //     setAnimationDirection('slide-left');
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
-
   const handleNext = () => {
     setAnimationDirection("slide-left");
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
@@ -50,7 +46,6 @@ const Testimonials = () => {
         (prevIndex - 1 + testimonialsData.length) % testimonialsData.length
     );
   };
-
 
   const container2Style = {
     display: "flex",
@@ -65,47 +60,46 @@ const Testimonials = () => {
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
   };
 
-
   const tempStyle = {
-    height: "auto", // Adjust to auto to fit content
-    width: "80%", // Width is more balanced for a centered look
-    maxWidth: "900px", // Prevents it from stretching too much on larger screens
+    height: "auto",
+    width: "80%",
+    maxWidth: "900px",
     padding: "40px",
-    borderRadius: "15px", // Slightly smaller border radius for modern look
-    marginLeft: "auto", // Centering the container
+    borderRadius: "15px",
+    marginLeft: "auto",
     marginRight: "auto",
     background: "linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5))",
-    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.15)", // Enhanced depth
+    boxShadow: "0 12px 30px rgba(0, 0, 0, 0.15)",
     animation: "fadeIn 1s ease-in-out",
-    transform: "scale(1.02)", // Slight zoom in for emphasis
-    transition: "transform 0.3s ease-in-out", // Smooth transition effect for hover
+    transform: "scale(1.02)",
+    transition: "transform 0.3s ease-in-out",
   };
-  
+
   const titleStyle = {
-    fontSize: "3.2rem", // Larger title for emphasis
+    fontSize: "3.2rem",
     fontWeight: "bold",
     margin: "20px 0",
     color: "#00796b",
-    textShadow: "4px 4px 8px rgba(0, 0, 0, 0.2)", // Deeper shadow for 3D effect
-    letterSpacing: "2px", // More pronounced letter spacing
+    textShadow: "4px 4px 8px rgba(0, 0, 0, 0.2)",
+    letterSpacing: "2px",
     textAlign: "center",
-    fontFamily: "'Roboto', sans-serif", // More modern font
+    fontFamily: "'Roboto', sans-serif",
     animation: "slideUp 1s ease-out",
   };
-  
+
   const paragraphStyle = {
-    fontSize: "1.2rem", // Slightly larger text for better readability
-    color: "#444", // Slightly darker text for contrast
-    lineHeight: "1.8", // More space between lines for easier reading
+    fontSize: "1.2rem",
+    color: "#444",
+    lineHeight: "1.8",
     margin: "20px 0",
     textAlign: "justify",
     fontFamily: "'Arial', sans-serif",
     animation: "fadeIn 1.5s ease-out",
     opacity: 0,
-    animationFillMode: "forwards", // Ensures animation is persistent
-    transform: "translateY(10px)", // Starts slightly lower for a smoother fade
+    animationFillMode: "forwards",
+    transform: "translateY(10px)",
   };
-  
+
   return (
     <div style={pageStyle}>
       <div style={container2Style}>
@@ -178,37 +172,29 @@ const Testimonials = () => {
               opacity: 1;
             }
           }
-          
-         @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); // Starts below and fades in
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes slideUp {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+          @keyframes fadeIn {
+            0% {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
 
-@keyframes hoverScale {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.05); // Slight scale effect on hover for more engagement
-  }
-}
+          @keyframes slideUp {
+            0% {
+              transform: translateY(30px);
+              opacity: 0;
+            }
+            100% {
+              transform: translateY(0);
+              opacity: 1;
+            }
+          }
+
           @keyframes slideRight {
             from {
               transform: translateX(-100%);
@@ -236,13 +222,6 @@ const pageStyle = {
   flexDirection: "row",
 };
 
-const titleStyle = {
-  fontSize: "2.5rem",
-  margin: "20px 0",
-  color: "#00796b",
-  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
-};
-
 const navigationContainerStyle = {
   display: "flex",
   justifyContent: "center",
@@ -251,8 +230,6 @@ const navigationContainerStyle = {
   width: 700,
   marginLeft: 100,
 };
-
-
 
 const navButtonStyle = {
   background: "linear-gradient(45deg, #2193b0, #6dd5ed)",
@@ -317,10 +294,10 @@ const nameStyle = {
 };
 
 const feedbackStyle = {
-  fontSize: "1rem",
-  color: "#555",
+  fontSize: "1.2rem",
   lineHeight: "1.6",
-  fontStyle: "italic",
+  color: "#444",
+  fontFamily: "'Arial', sans-serif",
 };
 
 export default Testimonials;
