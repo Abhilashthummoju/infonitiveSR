@@ -62,7 +62,7 @@ const ContactUs = () => {
         width: "95%",
         height: "95%",
         borderRadius: 25,
-        padding: 10,
+        padding: 15,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
     };
 

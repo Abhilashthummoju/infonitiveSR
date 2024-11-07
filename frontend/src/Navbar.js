@@ -36,13 +36,13 @@ function Navbar() {
   return (
     <nav style={{
       position: "fixed",
-      width: "100%",
+      width: "98%",
       top: 0,
       left: 0,
-      padding: "15px 0px",
+      padding: "15px 14px",
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-around",
+      justifyContent: "space-between",
       backgroundColor: isHeroSection ? "transparent" : "#ffffff",
       color: isHeroSection ? "white" : "black",
       zIndex: 1000,
@@ -61,7 +61,7 @@ function Navbar() {
         <>
           <FontAwesomeIcon 
             icon={isMenuOpen ? faTimes : faBars} 
-            style={{ fontSize: "1.5rem", cursor: "pointer", color: isHeroSection ? "white" : "black" }}
+            style={{ fontSize: "1.5rem", cursor: "pointer", color:"black",marginRight:5 }}
             onClick={toggleMenu} 
           />
           {isMenuOpen && (

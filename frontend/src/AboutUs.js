@@ -50,7 +50,7 @@ const AboutUs = () => {
     backgroundColor: '#ffffff',
     borderRadius: '15px',
     boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-    padding: '20px',
+    padding: isMobile?5:'20px',
     width: isMobile ? '100%' : '280px',
     maxWidth: '100%',
     transition: 'transform 0.4s, box-shadow 0.4s',

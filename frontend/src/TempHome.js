@@ -19,6 +19,7 @@ const TempHome = () => {
     position: "relative",
     overflow: "hidden",
     padding: isMobile ? "5%" : "2%",
+    marginBottom: isMobile ? 10: 0,
   };
 
   const servicesBarStyle = {

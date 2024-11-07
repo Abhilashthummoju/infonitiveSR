@@ -70,7 +70,7 @@ const Testimonials = () => {
     height: "auto",
     width: isMobile ? "100%" : "80%",
     maxWidth: "900px",
-    padding: isMobile ? "20px" : "40px",
+    padding: isMobile ? "10px" : "40px",
     borderRadius: "15px",
     margin: isMobile ? "20px auto" : "auto",
     background: "linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5))",
