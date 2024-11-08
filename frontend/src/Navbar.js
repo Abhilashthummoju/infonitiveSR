@@ -36,7 +36,7 @@ function Navbar() {
   return (
     <nav style={{
       position: "fixed",
-      width: "98%",
+      width: "100vw",
       top: 0,
       left: 0,
       padding: "15px 14px",
@@ -58,7 +58,7 @@ function Navbar() {
         Inofinitive SR
       </div>
       {isTabletOrMobile ? (
-        <>
+        <div style={{marginRight:10}}>
           <FontAwesomeIcon 
             icon={isMenuOpen ? faTimes : faBars} 
             style={{ fontSize: "1.5rem", cursor: "pointer", color:"black", marginRight:5 }}
@@ -131,7 +131,7 @@ function Navbar() {
               </ul>
             </div>
           )}
-        </>
+        </div>
       ) : (
         <ul style={{
           listStyle: "none",
