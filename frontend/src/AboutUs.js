@@ -19,7 +19,7 @@ const AboutUs = () => {
   const heroSectionStyle = {
     background: 'linear-gradient(135deg, #e0f7fa, #b2dfdb)',
     color: 'black',
-    padding: isTabletOrMobile ? '30px 20px' : '60px 20px',
+    padding: isTabletOrMobile ? '30px 10px' : '60px 20px',
     borderRadius: '10px',
     margin: '20px auto',
     maxWidth: '100%',

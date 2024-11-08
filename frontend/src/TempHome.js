@@ -13,25 +13,24 @@ const TempHome = () => {
     flexDirection: isMobile ? "column" : "row",
     alignItems: isMobile?"center": "flex-start",
     justifyContent: "center",
-    height: "100vh",
+    height: "90vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
     color: "#343a40",
     position: "relative",
     overflow: "hidden",
     padding: isMobile ? "5%" : "2%",
-    marginBottom: isMobile ? 20: 0,
   };
 
   const servicesBarStyle = {
     overflow: "hidden",
     whiteSpace: "nowrap",
     position: "absolute",
-    bottom: "5%",
+    bottom: "10%",
     left: 0,
     width: "100%",
     background: "#ffffff",
     padding: "1% 0",
-    borderRadius: "25px 25px 0 0",
+    borderRadius: "20px 20px 0 0",
     boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
     transform: "skewY(-5deg)",
     zIndex: 1,
@@ -72,6 +71,7 @@ const TempHome = () => {
     maxWidth: "80%",
     animation: "scaleUpDown 3s ease-in-out infinite",
     marginRight: isMobile ? "0" : "5%",
+    marginTop:isMobile? 20: 0, 
   };
 
   const textContainer = {
@@ -84,7 +84,7 @@ const TempHome = () => {
     background: "white", // Blue gradient
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
     borderRadius: "15px",
-    // border: "2px solid #007bff", // Blue border
+    border: "2px solid #007bff", // Blue border
     backdropFilter: "blur(10px)",
     maxWidth: "90%",
     position: "relative",

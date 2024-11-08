@@ -25,7 +25,7 @@ const Services = () => {
     alignItems: "center",
     justifyContent: "center",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
-    padding: "30px",
+    padding: isMobile?"5px":"30px",
   };
 
   const heroSectionStyle = {
