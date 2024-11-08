@@ -11,7 +11,7 @@ const TempHome = () => {
   const heroSectionStyle = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
-    alignItems: isMobile? "flex-start": "center",
+    alignItems: "center",
     justifyContent: "center",
     height: isMobile?"90vh":"100vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
@@ -90,6 +90,7 @@ const TempHome = () => {
     position: "relative",
     overflow: "hidden",
     animation: "fadeIn 1.5s ease-in-out",
+    marginTop: isMobile? -10: 0
   };
 
   return (

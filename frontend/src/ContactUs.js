@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { useMediaQuery } from 'react-responsive';
+import { FaWhatsapp, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const ContactUs = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -74,22 +75,22 @@ const ContactUs = () => {
         borderRadius: "15px",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
         padding: "30px",
-        // paddingRight: 0,
         width: "100%",
-        maxWidth: "600px",
+        maxWidth: "500px",
         textAlign: "center",
         margin: "0 auto",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
-        display:"flex",
+        display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        flexDirection:"column"
+        flexDirection: "column",
+        maxHeight: "600px",  // Prevent overflow on mobile
+        overflow: "auto", // Add scrolling
     };
 
     const inputStyle = {
         width: "95%",
         padding: "12px",
-        // paddingRight: 0,
         fontSize: "16px",
         color: "#333",
         backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -143,7 +144,21 @@ const ContactUs = () => {
                         <p style={{ color: "black" }}>
                             We’re happy to answer any questions you may have and help you determine which of our services best fit your needs.
                         </p>
+                        {/* Social Media Links */}
+                        <div style={{ marginTop: "20px" }}>
+                            <a href="https://whatsapp.com/channel/0029VaggzeF7Noa0MshelR00" target="_blank" style={{ margin: "0 10px" }}><FaWhatsapp size={30} color="#25D366" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style={{ margin: "0 10px" }}><FaLinkedin size={30} color="#0077b5" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
+                            <a href="https://www.instagram.com/inofinitive/" target="_blank" style={{ margin: "0 10px" }}><FaInstagram size={30} color="#E4405F" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
+                        </div>
+
+                        {/* Contact Information */}
+                        <div style={{ marginTop: "30px" }}>
+                            <p style={{ color: "black" }}>Mobile: +91 123 456 7890</p>
+                            <p style={{ color: "black" }}>Email: info@company.com</p>
+                            <p style={{ color: "black" }}>Address: 123, Street Name, City, Country</p>
+                        </div>
                     </div>
+
                     <div style={ContactcontainerStyle}>
                         <h2 style={{ color: "black", marginBottom: "20px" }}>Get Your Free Quote</h2>
                         <form onSubmit={sendEmail}>
@@ -185,18 +200,18 @@ const ContactUs = () => {
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 style={isFocused ? { ...inputStyle, height: "120px", ...focusedInputStyle } : { ...inputStyle, height: "120px" }}
-                                placeholder="Enter your Message"
+                                placeholder="Enter your message"
                                 onFocus={() => setIsFocused(true)}
                                 onBlur={() => setIsFocused(false)}
                                 required
-                            />
+                            ></textarea>
                             <button
                                 type="submit"
                                 style={SubmitbuttonStyle}
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}
                             >
-                                Submit
+                                Send Message
                             </button>
                         </form>
                     </div>

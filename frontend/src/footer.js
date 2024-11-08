@@ -90,7 +90,7 @@ const footerSectionStyle = (isMobile) => ({
   backgroundColor: '#ffffff', // White background for sections
   boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', // More noticeable shadow for sections
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  minHeight: '250px',
+  minHeight: '270px',
   hover: 'transform: scale(1.05)', // Hover effect for interactive elements
 });
 
