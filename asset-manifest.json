@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/infonitiveSR/static/css/main.14097ea0.css",
-    "main.js": "/infonitiveSR/static/js/main.6348778f.js",
+    "main.css": "/infonitiveSR/static/css/main.93f8a14e.css",
+    "main.js": "/infonitiveSR/static/js/main.bcf53b65.js",
     "static/js/453.8ab44547.chunk.js": "/infonitiveSR/static/js/453.8ab44547.chunk.js",
     "static/media/face.png": "/infonitiveSR/static/media/face.39a862279fd75942ed1b.png",
     "static/media/vision.webp": "/infonitiveSR/static/media/vision.5c9521e073f6dceab569.webp",
@@ -9,12 +9,12 @@
     "static/media/values.webp": "/infonitiveSR/static/media/values.448701c4fea7f2ff0e01.webp",
     "static/media/home-font.png": "/infonitiveSR/static/media/home-font.777363dbcbb45a3c403a.png",
     "index.html": "/infonitiveSR/index.html",
-    "main.14097ea0.css.map": "/infonitiveSR/static/css/main.14097ea0.css.map",
-    "main.6348778f.js.map": "/infonitiveSR/static/js/main.6348778f.js.map",
+    "main.93f8a14e.css.map": "/infonitiveSR/static/css/main.93f8a14e.css.map",
+    "main.bcf53b65.js.map": "/infonitiveSR/static/js/main.bcf53b65.js.map",
     "453.8ab44547.chunk.js.map": "/infonitiveSR/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.14097ea0.css",
-    "static/js/main.6348778f.js"
+    "static/css/main.93f8a14e.css",
+    "static/js/main.bcf53b65.js"
   ]
 }
