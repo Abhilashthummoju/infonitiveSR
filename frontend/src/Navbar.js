@@ -58,7 +58,7 @@ function Navbar() {
         Inofinitive SR
       </div>
       {isTabletOrMobile ? (
-        <div style={{marginRight:10}}>
+        <div style={{marginRight:30}}>
           <FontAwesomeIcon 
             icon={isMenuOpen ? faTimes : faBars} 
             style={{ fontSize: "1.5rem", cursor: "pointer", color:"black", marginRight:5 }}
