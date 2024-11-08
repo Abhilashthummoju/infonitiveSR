@@ -11,7 +11,7 @@ const TempHome = () => {
   const heroSectionStyle = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
-    alignItems: "center",
+    alignItems: isMobile?"center": "flex-start",
     justifyContent: "center",
     height: "100vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
@@ -19,7 +19,7 @@ const TempHome = () => {
     position: "relative",
     overflow: "hidden",
     padding: isMobile ? "5%" : "2%",
-    marginBottom: isMobile ? 10: 0,
+    marginBottom: isMobile ? 20: 0,
   };
 
   const servicesBarStyle = {

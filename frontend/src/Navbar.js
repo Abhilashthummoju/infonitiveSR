@@ -61,7 +61,7 @@ function Navbar() {
         <>
           <FontAwesomeIcon 
             icon={isMenuOpen ? faTimes : faBars} 
-            style={{ fontSize: "1.5rem", cursor: "pointer", color:"black",marginRight:5 }}
+            style={{ fontSize: "1.5rem", cursor: "pointer", color:"black", marginRight:5 }}
             onClick={toggleMenu} 
           />
           {isMenuOpen && (
@@ -192,22 +192,24 @@ function Navbar() {
           ))}
         </ul>
       )}
-      <div style={{
-        fontSize: isMobile ? "1rem" : "1.1rem",
-        fontWeight: "bold",
-        color: "white",
-        display: "flex",
-        alignItems: "center",
-        backgroundColor: "#0077ff",
-        borderRadius: "5px",
-        padding: "8px 12px",
-        width: "auto", // Ensures it only wraps the content
-        flexShrink: 0, // Prevents it from growing or shrinking
-        marginRight: "auto"
-      }}>
-        <FontAwesomeIcon icon={faSquarePhone} style={{ marginRight: "8px" }} />
-        <span>Call us at: +91-7416305104</span>
-      </div>
+      {!isMobile && (
+        <div style={{
+          fontSize: isMobile ? "1rem" : "1.1rem",
+          fontWeight: "bold",
+          color: "white",
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "#0077ff",
+          borderRadius: "5px",
+          padding: "8px 12px",
+          width: "auto",
+          flexShrink: 0,
+          marginRight: "auto"
+        }}>
+          <FontAwesomeIcon icon={faSquarePhone} style={{ marginRight: "8px" }} />
+          <span>Call us at: +91-7416305104</span>
+        </div>
+      )}
     </nav>
   );
 }
