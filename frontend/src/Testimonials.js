@@ -34,7 +34,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [currentIndex]);
@@ -73,13 +73,13 @@ const Testimonials = () => {
     padding: isMobile ? "5px" : "40px",
     borderRadius: "15px",
     margin: isMobile ? "15px auto" : "auto",
-    background: "linear-gradient(to right, rgba(79, 172, 254, 0.5), rgba(0, 242, 254, 0.5))",
+    background: "linear-gradient(to right, #4facfe, #00f2fe)",
     boxShadow: "0 12px 30px rgba(0, 0, 0, 0.15)",
   };
 
   const pageStyle = {
     fontFamily: "'Roboto', sans-serif",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#f0f4f8",
     color: "#333",
     padding: isMobile ? "20px 0px" : "40px 20px",
     textAlign: "center",
@@ -111,6 +111,7 @@ const Testimonials = () => {
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
     padding: "20px",
     width: isMobile ? "100%" : 500,
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
   };
 
   const imageStyle = {
@@ -118,6 +119,8 @@ const Testimonials = () => {
     height: isMobile ? "120px" : "170px",
     borderRadius: "50%",
     marginBottom: "20px",
+    border: "3px solid #fff",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
   };
 
   const titleStyle = {
@@ -175,8 +178,9 @@ const navButtonStyle = {
   color: "#fff",
   padding: "10px",
   cursor: "pointer",
-  transition: "transform 0.3s",
+  transition: "transform 0.3s ease, box-shadow 0.3s ease",
   margin: "0 10px",
+  boxShadow: "0 6px 15px rgba(0, 0, 0, 0.2)",
 };
 
 export default Testimonials;

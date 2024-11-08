@@ -21,7 +21,7 @@ const ContactUs = () => {
     };
 
     const sendEmail = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
 
         // Use your EmailJS credentials here
         const serviceID = 'service_f5s2f3r';
@@ -59,32 +59,37 @@ const ContactUs = () => {
 
     const tempDiv = {
         background: "linear-gradient(to right, #4facfe, #00f2fe)",
-        width: "97%",
-        height: "95%",
+        width: "100%",
+        minWidth: "90%",
+        height: "auto",
         borderRadius: 25,
         padding: 15,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
-        alignItems: "center",
-        display:"flex",
-        flexDirection:"column",
+        display: "flex",
+        flexDirection: "column",
     };
 
     const ContactcontainerStyle = {
         backgroundColor: "rgba(255, 255, 255, 0.8)",
         borderRadius: "15px",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-        padding: "20px",
-        width: "90%",
-        maxWidth: "500px",
+        padding: "30px",
+        // paddingRight: 0,
+        width: "100%",
+        maxWidth: "600px",
         textAlign: "center",
+        margin: "0 auto",
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
-        cursor: "pointer",
-        margin: "10px auto",
+        display:"flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection:"column"
     };
 
     const inputStyle = {
-        width: "100%",
-        padding: "12px 4px",
+        width: "95%",
+        padding: "12px",
+        // paddingRight: 0,
         fontSize: "16px",
         color: "#333",
         backgroundColor: "rgba(255, 255, 255, 0.9)",
@@ -109,7 +114,8 @@ const ContactUs = () => {
         transform: isHovered ? "scale(1.05)" : "scale(1)",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
         width: "100%",
-        maxWidth: "170px",
+        maxWidth: "200px",
+        margin: "0 auto",
     };
 
     // Media Queries using react-responsive
@@ -124,10 +130,14 @@ const ContactUs = () => {
                         display: "flex",
                         flexDirection: isMobile ? "column" : "row",
                         width: "100%",
-                        height: "100%",
+                        justifyContent: "center",
                     }}
                 >
-                    <div style={{ width: isMobile ? "100%" : "50%", textAlign: isMobile ? "center" : "left", marginBottom: isMobile ? "20px" : "0" }}>
+                    <div style={{
+                        width: isMobile ? "100%" : "50%", 
+                        textAlign: isMobile ? "center" : "left", 
+                        marginBottom: isMobile ? "20px" : "0",
+                    }}>
                         <h1 style={{ color: "black" }}>Contact Us</h1>
                         <h2 style={{ color: "black" }}>We’re Here to Help!</h2>
                         <p style={{ color: "black" }}>
@@ -135,7 +145,7 @@ const ContactUs = () => {
                         </p>
                     </div>
                     <div style={ContactcontainerStyle}>
-                        <h2 style={{ color: "black" }}>Get Your Free Quote</h2>
+                        <h2 style={{ color: "black", marginBottom: "20px" }}>Get Your Free Quote</h2>
                         <form onSubmit={sendEmail}>
                             <input
                                 type="text"
@@ -174,7 +184,7 @@ const ContactUs = () => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
-                                style={isFocused ? { ...inputStyle, height: "100px", ...focusedInputStyle } : { ...inputStyle, height: "100px" }}
+                                style={isFocused ? { ...inputStyle, height: "120px", ...focusedInputStyle } : { ...inputStyle, height: "120px" }}
                                 placeholder="Enter your Message"
                                 onFocus={() => setIsFocused(true)}
                                 onBlur={() => setIsFocused(false)}

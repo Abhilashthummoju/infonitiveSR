@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMediaQuery } from 'react-responsive'; // Import react-responsive
+import { useMediaQuery } from 'react-responsive';
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -28,8 +28,7 @@ const FAQs = () => {
   };
 
   // Use react-responsive to handle responsiveness
-  const isMobile = useMediaQuery({ maxWidth: 768 }); // For mobile devices
-  const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 }); // For tablets
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   return (
     <div style={pageStyle}>
@@ -37,7 +36,7 @@ const FAQs = () => {
       <div style={faqsContainerStyle}>
         {faqsData.map((faq, index) => (
           <div key={index} style={faqCardStyle(isMobile)}>
-            <div onClick={() => toggleFAQ(index)} style={faqHeaderStyle}>
+            <div onClick={() => toggleFAQ(index)} style={faqHeaderStyle(isMobile)}>
               <h2 style={questionStyle(isMobile)}>{faq.question}</h2>
               <span style={iconStyle(activeIndex === index, isMobile)}>+</span>
             </div>
@@ -49,21 +48,32 @@ const FAQs = () => {
   );
 };
 
-// Inline CSS
+// Enhanced CSS styles with animations and effects
 const pageStyle = {
   fontFamily: "'Roboto', sans-serif",
-  backgroundColor: '#f8f9fa',
+  backgroundColor: '#ffffff',
   color: '#333',
   padding: '40px 20px',
   textAlign: 'center',
-  animation: 'fadeIn 1s ease-in-out',
+  animation: 'fadeIn 1.5s ease-in-out',
+  background: 'linear-gradient(135deg, #f5f5f5, #e0e0e0)',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  height: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  overflow: 'hidden',
 };
 
 const titleStyle = {
-  fontSize: '2.5rem',
+  fontSize: '2.8rem',
   margin: '20px 0',
-  color: 'black',
-  textShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
+  color: '#333',
+  textShadow: '2px 2px 8px rgba(0, 0, 0, 0.1)',
+  letterSpacing: '0.5px',
+  textTransform: 'uppercase',
+  animation: 'fadeInUp 2s ease-in-out',
 };
 
 const faqsContainerStyle = {
@@ -75,58 +85,59 @@ const faqsContainerStyle = {
 
 const faqCardStyle = (isMobile) => ({
   backgroundColor: '#ffffff',
-  borderRadius: '10px',
-  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-  marginBottom: '20px',
-  transition: 'transform 0.3s, box-shadow 0.3s',
-  overflow: 'hidden',
+  borderRadius: '12px',
+  boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
+  marginBottom: '25px',
+  padding: isMobile ? '12px' : '20px',
+  transition: 'transform 0.3s, box-shadow 0.3s ease-out',
   cursor: 'pointer',
-  padding: isMobile ? '10px' : '20px', // Mobile-friendly padding
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+  },
+  animation: 'fadeInUp 1s ease-in-out',
 });
 
-const faqHeaderStyle = {
-  padding: '15px 20px',
+const faqHeaderStyle = (isMobile) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  transition: 'background-color 0.3s',
+  padding: '20px',
+  backgroundColor: '#00796b', // Softer, elegant color
+  borderRadius: '10px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s ease',
   '&:hover': {
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#004d40',
   },
-};
+  animation: 'fadeInUp 1s ease-in-out',
+});
 
 const questionStyle = (isMobile) => ({
-  fontSize: isMobile ? '1.2rem' : '1.5rem', // Adjust font size for mobile
-  color: 'black',
+  fontSize: isMobile ? '1.3rem' : '1.6rem',
+  color: '#fff',
   margin: 0,
+  fontWeight: '600',
+  letterSpacing: '0.5px',
 });
 
 const iconStyle = (isActive, isMobile) => ({
-  fontSize: isMobile ? '1.2rem' : '1.5rem', // Adjust icon size for mobile
-  color: isActive ? '#00796b' : '#aaa',
-  transition: 'transform 0.3s',
+  fontSize: isMobile ? '1.5rem' : '1.8rem',
+  color: isActive ? '#fff' : '#ddd',
+  transition: 'transform 0.3s, color 0.3s ease',
   transform: isActive ? 'rotate(45deg)' : 'rotate(0deg)',
 });
 
 const answerStyle = {
-  padding: '15px 20px',
   fontSize: '1rem',
   color: '#555',
-  lineHeight: '1.6',
-  animation: 'fadeIn 0.5s ease-in-out',
+  lineHeight: '1.8',
+  padding: '15px 20px',
+  backgroundColor: '#f4f4f4',
+  borderRadius: '8px',
+  animation: 'fadeIn 1s ease-in-out',
 };
 
-const footerStyle = {
-  marginTop: '60px',
-  padding: '20px 0',
-  borderTop: '1px solid #ddd',
-  color: '#777',
-  fontSize: '0.9rem',
-};
-
-const footerTextStyle = {
-  margin: '0',
-};
 
 // Injecting Keyframes for Animations
 const styleSheet = document.styleSheets[0];

@@ -204,7 +204,7 @@ function Navbar() {
           padding: "8px 12px",
           width: "auto",
           flexShrink: 0,
-          marginRight: "auto"
+          marginRight:50
         }}>
           <FontAwesomeIcon icon={faSquarePhone} style={{ marginRight: "8px" }} />
           <span>Call us at: +91-7416305104</span>

@@ -61,13 +61,14 @@ const Footer = () => {
 const footerStyle = {
   backgroundColor: '#ffffff', // White background for footer
   color: '#1f3a68', // Dark blue text color for readability
-  padding: '60px 30px',
+  padding: "60px 30px",
+  paddingRight:0,
   fontFamily: "'Arial', sans-serif",
   textAlign: 'center',
   boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)',
   animation: 'fadeIn 1.5s ease-in-out',
   transition: 'background-color 0.3s ease', // Smooth background color transition
-  width: "100vw"
+  // width: "100vw"
 };
 
 const footerContentStyle = (isMobile) => ({
