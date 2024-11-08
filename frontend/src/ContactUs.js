@@ -59,11 +59,14 @@ const ContactUs = () => {
 
     const tempDiv = {
         background: "linear-gradient(to right, #4facfe, #00f2fe)",
-        width: "95%",
+        width: "97%",
         height: "95%",
         borderRadius: 25,
         padding: 15,
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+        alignItems: "center",
+        display:"flex",
+        flexDirection:"column",
     };
 
     const ContactcontainerStyle = {

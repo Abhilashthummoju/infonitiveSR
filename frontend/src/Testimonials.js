@@ -57,18 +57,18 @@ const Testimonials = () => {
     flexDirection: isMobile ? "column" : "row",
     borderRadius: 25,
     width: isMobile ? "100%" : "95%",
-    padding: isMobile ? 0 : 10,
+    padding: isMobile ? 10 : 10,
     alignItems: "center",
     height: isMobile ? "auto" : "95%",
     background: "white",
-    marginLeft: isMobile ? 0 : 25,
+    marginLeft: isMobile ? 5 : 25,
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.4)",
     margin: "auto",
   };
 
   const tempStyle = {
     height: "auto",
-    width: isMobile ? "100%" : "80%",
+    width: isMobile ? "85%" : "80%",
     maxWidth: "900px",
     padding: isMobile ? "5px" : "40px",
     borderRadius: "15px",
