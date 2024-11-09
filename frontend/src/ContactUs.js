@@ -74,11 +74,11 @@ const ContactUs = () => {
         backgroundColor: "rgba(255, 255, 255, 0.8)",
         borderRadius: "15px",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-        padding: "30px",
-        width: "100%",
-        maxWidth: "500px",
+        padding: isMobile ? "15px" : "30px", // Adjust padding for mobile
+        width: "100%", // Ensure the width doesn't overflow
+        maxWidth: "500px", // Limit the maximum width to avoid it becoming too wide on large screens
         textAlign: "center",
-        margin: "0 auto",
+        boxSizing: "border-box", // Include padding in width calculation
         transition: "transform 0.3s ease, box-shadow 0.3s ease",
         display: "flex",
         alignItems: "center",
@@ -86,7 +86,9 @@ const ContactUs = () => {
         flexDirection: "column",
         maxHeight: "600px",  // Prevent overflow on mobile
         overflow: "auto", // Add scrolling
+        margin: "0 auto", // Center the container horizontally
     };
+    
 
     const inputStyle = {
         width: "95%",

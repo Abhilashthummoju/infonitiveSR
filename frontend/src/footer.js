@@ -83,7 +83,7 @@ const footerContentStyle = (isMobile) => ({
 
 const footerSectionStyle = (isMobile) => ({
   flex: isMobile ? '1' : '0.3',
-  minWidth: '280px',
+  minWidth: '250px',
   padding: '20px',
   borderRadius: '15px',
   backgroundColor: '#ffffff',

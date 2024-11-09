@@ -40,16 +40,15 @@ const TempHome = () => {
     transform: "translateY(20px)",
     transition: "all 0.3s ease-in-out",
     animation: "bounceIn 1.5s ease-out",
-    height: isMobile ? "auto" : "45vh", // Adjust this value to decrease the height
-
+    height: isMobile ? "50%" : "60vh",
   };
 
   const imageStyle = {
-    height: isMobile ? "50vw" : "30vw",
-    width: isMobile ? "50vw" : "30vw",
+    height: isMobile ? "0" : isMobile ? "50vw" : "40vw", // Hide image on mobile
+    width: isMobile ? "0" : isMobile ? "50vw" : "40vw",
     maxWidth: "80%",
     animation: "scaleUpDown 3s ease-in-out infinite",
-    marginTop: isMobile ? 20 : 0,
+    marginLeft: 20
   };
 
   const headingStyle = {
@@ -90,11 +89,14 @@ const TempHome = () => {
 
   const circleContainerStyle = {
     display: "flex",
-    justifyContent: "center",
-    gap: "20rem",
+    justifyContent: "space-between",
+    gap: isMobile ? "1rem" : "2rem", // Adjust gap for mobile
     marginTop: "2rem",
     position: "absolute",
     bottom: "5%",
+    width: "100%",
+    padding:"0px 90px",
+    flexDirection :"row", // Stack vertically on mobile
   };
 
   const circleCardStyle = {
@@ -130,7 +132,7 @@ const TempHome = () => {
         style={{
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
-          paddingTop: "5%",
+          paddingTop: "10%",
           justifyContent: "center",
         }}
       >
@@ -147,15 +149,16 @@ const TempHome = () => {
             build a brighter future!
           </p>
         </div>
-        <img src={LogoImage} alt="logo" style={imageStyle} />
+        {/* Hide the image on mobile */}
+        {!isMobile && <img src={LogoImage} alt="logo" style={imageStyle} />}
       </div>
 
       {/* Circle Cards Section */}
-      <div style={circleContainerStyle}>
+      {/* <div style={circleContainerStyle}>
         <div style={{ ...circleCardStyle, ...hoverEffect }}>Customer Support</div>
         <div style={{ ...circleCardStyle, ...hoverEffect }}>Technical Support</div>
         <div style={{ ...circleCardStyle, ...hoverEffect }}>Telemarketing Support</div>
-      </div>
+      </div> */}
 
       {/* Animations */}
       <style>

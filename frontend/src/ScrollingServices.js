@@ -11,7 +11,7 @@ const ScrollingServices = () => {
   const containerStyle = {
     width: "100%",
     overflow: "hidden",
-    background: "#f0f4f8",
+    background: "#FFFFFF",
     padding: isMobile ? "10px 0" : "20px 0",
     position: "relative",
     display: "flex",
