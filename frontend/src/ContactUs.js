@@ -132,6 +132,8 @@ const ContactUs = () => {
                         flexDirection: isMobile ? "column" : "row",
                         width: "100%",
                         justifyContent: "center",
+                        margin: "0 auto",  // Ensure the content is centered on mobile
+                        padding: "0 15px", // Added padding to prevent overflow
                     }}
                 >
                     <div style={{
@@ -146,9 +148,9 @@ const ContactUs = () => {
                         </p>
                         {/* Social Media Links */}
                         <div style={{ marginTop: "20px" }}>
-                            <a href="https://whatsapp.com/channel/0029VaggzeF7Noa0MshelR00" target="_blank" style={{ margin: "0 10px" }}><FaWhatsapp size={30} color="#25D366" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
-                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style={{ margin: "0 10px" }}><FaLinkedin size={30} color="#0077b5" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
-                            <a href="https://www.instagram.com/inofinitive/" target="_blank" style={{ margin: "0 10px" }}><FaInstagram size={30} color="#E4405F" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)",padding:6,borderRadius:5}} /></a>
+                            <a href="https://whatsapp.com/channel/0029VaggzeF7Noa0MshelR00" target="_blank" style={{ margin: "0 10px" }}><FaWhatsapp size={30} color="#25D366" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)", padding: 6, borderRadius: 5 }} /></a>
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style={{ margin: "0 10px" }}><FaLinkedin size={30} color="#0077b5" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)", padding: 6, borderRadius: 5 }} /></a>
+                            <a href="https://www.instagram.com/inofinitive/" target="_blank" style={{ margin: "0 10px" }}><FaInstagram size={30} color="#E4405F" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)", padding: 6, borderRadius: 5 }} /></a>
                         </div>
 
                         {/* Contact Information */}
@@ -200,18 +202,18 @@ const ContactUs = () => {
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 style={isFocused ? { ...inputStyle, height: "120px", ...focusedInputStyle } : { ...inputStyle, height: "120px" }}
-                                placeholder="Enter your message"
+                                placeholder="Enter your Message"
                                 onFocus={() => setIsFocused(true)}
                                 onBlur={() => setIsFocused(false)}
                                 required
-                            ></textarea>
+                            />
                             <button
                                 type="submit"
                                 style={SubmitbuttonStyle}
                                 onMouseEnter={() => setIsHovered(true)}
                                 onMouseLeave={() => setIsHovered(false)}
                             >
-                                Send Message
+                                Submit
                             </button>
                         </form>
                     </div>

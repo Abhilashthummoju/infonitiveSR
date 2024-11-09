@@ -49,7 +49,7 @@ const Footer = () => {
           <p style={footerTextStyle}>Email: support@inofinitive.com</p>
         </div>
       </div>
-      <div style={{...footerBottomWrapperStyle(isMobile),textAlign:"center",justifyContent:"center",display:"flex"}}>
+      <div style={{...footerBottomWrapperStyle(isMobile), textAlign: "center", justifyContent: "center", display: "flex"}}>
         <p style={footerTextStyle}>&copy; 2024 Inofinitive SR. All rights reserved.</p>
       </div>
     </footer>
@@ -59,16 +59,15 @@ const Footer = () => {
 // Enhanced CSS Styles with White and Blue Theme
 
 const footerStyle = {
-  backgroundColor: '#ffffff', // White background for footer
-  color: '#1f3a68', // Dark blue text color for readability
+  backgroundColor: '#ffffff',
+  color: '#1f3a68',
   padding: "60px 30px",
-  paddingRight:0,
+  paddingRight: 0,
   fontFamily: "'Arial', sans-serif",
   textAlign: 'center',
   boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)',
   animation: 'fadeIn 1.5s ease-in-out',
-  transition: 'background-color 0.3s ease', // Smooth background color transition
-  // width: "100vw"
+  transition: 'background-color 0.3s ease',
 };
 
 const footerContentStyle = (isMobile) => ({
@@ -78,7 +77,7 @@ const footerContentStyle = (isMobile) => ({
   alignItems: 'flex-start',
   margin: '0 auto',
   gap: '30px',
-  paddingBottom: '30px', // Space between sections and bottom
+  paddingBottom: '30px',
   flexWrap: 'wrap',
 });
 
@@ -87,27 +86,28 @@ const footerSectionStyle = (isMobile) => ({
   minWidth: '280px',
   padding: '20px',
   borderRadius: '15px',
-  backgroundColor: '#ffffff', // White background for sections
+  backgroundColor: '#ffffff',
   boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', // More noticeable shadow for sections
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   minHeight: '270px',
   hover: 'transform: scale(1.05)', // Hover effect for interactive elements
+  marginBottom: '20px', // Add spacing between the cards
 });
 
 const headingStyle = {
   fontSize: '1.7rem',
   marginBottom: '20px',
-  color: '#1f3a68', // Deep blue color for headings
+  color: '#1f3a68',
   textTransform: 'uppercase',
   letterSpacing: '1.5px',
   fontWeight: '600',
-  transition: 'color 0.3s ease', // Smooth transition on hover
+  transition: 'color 0.3s ease',
 };
 
 const listStyle = {
   listStyle: 'none',
   padding: '0',
-  color: '#5a6e8f', // Soft blue for list items
+  color: '#5a6e8f',
   marginTop: '15px',
 };
 
@@ -120,7 +120,7 @@ const listItemStyle = {
 
 const paragraphStyle = {
   margin: '15px 0',
-  color: '#777', // Light grey for text
+  color: '#777',
   fontSize: '1rem',
   lineHeight: '1.6',
 };
@@ -134,7 +134,7 @@ const socialIconsStyle = {
 
 const iconStyle = {
   fontSize: '2rem',
-  color: '#1f3a68', // Blue color for icons
+  color: '#1f3a68',
   textDecoration: 'none',
   transition: 'color 0.3s ease',
 };
@@ -144,11 +144,11 @@ const footerBottomWrapperStyle = (isMobile) => ({
   flexDirection: isMobile ? 'column' : 'row',
   justifyContent: isMobile ? 'center' : 'space-between',
   alignItems: 'center',
-  borderTop: '1px solid #e0e0e0', // Light grey border
+  borderTop: '1px solid #e0e0e0',
   padding: '20px 0',
   marginTop: '20px',
   textAlign: "center",
-  backgroundColor: '#f9f9f9', // Soft background color for bottom section
+  backgroundColor: '#f9f9f9',
 });
 
 const contactInfoStyle = {
@@ -156,7 +156,7 @@ const contactInfoStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   gap: '12px',
-  color: '#1f3a68', // Dark blue for contact text
+  color: '#1f3a68',
   fontWeight: '500',
 };
 
@@ -166,7 +166,7 @@ const phoneIconStyle = {
 
 const callTextStyle = {
   fontSize: '1.2rem',
-  color: '#5a6e8f', // Soft blue for contact text
+  color: '#5a6e8f',
   textAlign: 'center',
 };
 
@@ -177,7 +177,7 @@ const emailInfoStyle = {
 
 const footerTextStyle = {
   margin: '0',
-  color: '#777', // Dark grey for footer text
+  color: '#777',
   fontSize: '0.9rem',
   opacity: 0.8,
   fontWeight: '400',

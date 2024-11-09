@@ -1,6 +1,7 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 import LogoImage from "./images/home-font.png";
+import ScrollingServices from "./ScrollingServices";
 
 const TempHome = () => {
   // Responsive breakpoints
@@ -10,59 +11,37 @@ const TempHome = () => {
 
   const heroSectionStyle = {
     display: "flex",
-    flexDirection: isMobile ? "column" : "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: isMobile?"90vh":"100vh",
+    height: isMobile ? "90vh" : "100vh",
     background: "linear-gradient(180deg, #FFFFFF, #D9D9D9)",
     color: "#343a40",
     position: "relative",
     overflow: "hidden",
     padding: isMobile ? "5%" : "2%",
-  };
-
-  const servicesBarStyle = {
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-    position: "absolute",
-    bottom: "10%",
-    left: 0,
-    width: "100%",
-    background: "#ffffff",
-    padding: "1% 0",
-    borderRadius: "20px 20px 0 0",
-    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
-    transform: "skewY(-5deg)",
-    zIndex: 1,
-  };
-
-  const scrollingTextStyle = {
-    display: "inline-block",
-    animation: "scroll 20s linear infinite",
-    fontFamily: "'Roboto', sans-serif",
-    fontSize: isMobile ? "2vw" : "1.5vw",
-    color: "#343a40",
-    fontWeight: "bold",
-    paddingLeft: "100%",
-    whiteSpace: "nowrap",
-    textShadow: "1px 1px 3px rgba(0, 0, 0, 0.1)",
-    letterSpacing: "0.1vw",
-  };
-
-  const descriptionStyle = {
-    marginTop: "1%",
-    maxWidth: isDesktop ? "80%" : "90%",
-    padding: "2%",
-    fontSize: isMobile ? "3vw" : "1.2vw",
-    lineHeight: "1.6",
-    color: "#343a40",
-    fontFamily: "'Merriweather', serif",
     textAlign: "center",
-    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)",
-    borderTop: "1px solid #e0e0e0",
-    borderBottom: "1px solid #e0e0e0",
-    paddingTop: "2%",
-    paddingBottom: "2%",
+  };
+
+  const textContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    background: "rgba(255, 255, 255, 0.85)",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+    borderRadius: "15px",
+    border: "2px solid #007bff",
+    maxWidth: isMobile ? "90%" : "60%",
+    padding: "2%",
+    position: "relative",
+    animation: "fadeIn 1.5s ease-in-out",
+    backdropFilter: "blur(10px)",
+    transform: "translateY(20px)",
+    transition: "all 0.3s ease-in-out",
+    animation: "bounceIn 1.5s ease-out",
+    height: isMobile ? "auto" : "45vh", // Adjust this value to decrease the height
+
   };
 
   const imageStyle = {
@@ -70,98 +49,141 @@ const TempHome = () => {
     width: isMobile ? "50vw" : "30vw",
     maxWidth: "80%",
     animation: "scaleUpDown 3s ease-in-out infinite",
-    marginRight: isMobile ? "0" : "5%",
-    marginTop:isMobile? 20: 0, 
+    marginTop: isMobile ? 20 : 0,
   };
 
-  const textContainer = {
+  const headingStyle = {
+    fontSize: isMobile ? "6vw" : "3vw",
+    fontWeight: "700",
+    color: "#007bff",
+    margin: "10px 0",
+    lineHeight: "1.2",
+    fontFamily: "'Poppins', sans-serif",
+    textTransform: "uppercase",
+    letterSpacing: "2px",
+    animation: "slideInLeft 1.5s ease-in-out",
+  };
+
+  const subHeadingStyle = {
+    fontSize: isMobile ? "4vw" : "2.5vw",
+    fontWeight: "500",
+    color: "#343a40",
+    margin: "10px 0",
+    lineHeight: "1.4",
+    fontFamily: "'Lora', serif",
+    textTransform: "capitalize",
+    animation: "slideInRight 1.5s ease-in-out",
+  };
+
+  const descriptionStyle = {
+    marginTop: "1%",
+    maxWidth: isDesktop ? "80%" : "90%",
+    fontSize: isMobile ? "4vw" : "1.2vw",
+    lineHeight: "1.6",
+    color: "#343a40",
+    fontFamily: "'Merriweather', serif",
+    textAlign: "center",
+    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)",
+    paddingTop: "2%",
+    paddingBottom: "2%",
+  };
+
+  const circleContainerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20rem",
+    marginTop: "2rem",
+    position: "absolute",
+    bottom: "5%",
+  };
+
+  const circleCardStyle = {
+    width: isMobile ? "80px" : "100px",
+    height: isMobile ? "80px" : "100px",
+    borderRadius: "50%",
+    background: "linear-gradient(135deg, #ff6a00, #ee0979)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "column",
-    marginRight: isMobile ? "0" : "5%",
-    padding: "2%",
-    background: "white", // Blue gradient
-    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
-    borderRadius: "15px",
-    border: "2px solid #007bff", // Blue border
-    backdropFilter: "blur(10px)",
-    maxWidth: "90%",
-    position: "relative",
-    overflow: "hidden",
-    animation: "fadeIn 1.5s ease-in-out",
-    marginTop: isMobile? -10: 0
+    color: "white",
+    fontWeight: "bold",
+    fontSize: isMobile ? "0.8rem" : "1rem",
+    textAlign: "center",
+    padding: "10px",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    cursor: "pointer",
+    animation: "pulse 2s infinite",
+  };
+
+  const hoverEffect = {
+    transform: "scale(1.1)",
+    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.4)",
   };
 
   return (
     <div id="home" style={heroSectionStyle}>
-      <div className="text-container" style={textContainer}>
-        <label className="heading">Welcome to Inofinitive SR!</label><br />
-        <label className="sub-heading">Where Support Meets Success</label>
-        <p style={descriptionStyle}>
-          At Inofinitive SR, we are dedicated to providing exceptional support
-          and services to our clients. Our team of professionals is committed
-          to ensuring your success through tailored solutions that meet your
-          unique needs. Whether you require customer support, technical
-          assistance, or telemarketing services, we are here to help you
-          navigate your challenges and achieve your goals. Together, we can
-          build a brighter future!
-        </p>
+      <div style={{ position: "absolute", top: "10%" }}>
+        <ScrollingServices />
       </div>
-      <img src={LogoImage} alt="logo" style={imageStyle} />
-      <div style={servicesBarStyle}>
-        <div style={scrollingTextStyle}>
-          <span>🌟 Customer Support | </span>
-          <span>⚙️ Technical Support | </span>
-          <span>📞 Telemarketing Services | </span>
-          <span>🎤 Voice Support | </span>
-          <span>💬 Non-Voice Support | </span>
-          <span>🌐 ISP Technical Support | </span>
-          <span>💻 Desktop and Laptop Support | </span>
-          <span>📦 Outbound Calling | </span>
-          <span>📞 Inbound Calling | </span>
-          <span>🔧 Software and Hardware Support | </span>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          paddingTop: "5%",
+          justifyContent: "center",
+        }}
+      >
+        <div className="text-container" style={textContainerStyle}>
+          <h1 style={headingStyle}>Welcome to Inofinitive SR!</h1>
+          <h2 style={subHeadingStyle}>Where Support Meets Success</h2>
+          <p style={descriptionStyle}>
+            At Inofinitive SR, we are dedicated to providing exceptional support
+            and services to our clients. Our team of professionals is committed
+            to ensuring your success through tailored solutions that meet your
+            unique needs. Whether you require customer support, technical
+            assistance, or telemarketing services, we are here to help you
+            navigate your challenges and achieve your goals. Together, we can
+            build a brighter future!
+          </p>
         </div>
+        <img src={LogoImage} alt="logo" style={imageStyle} />
       </div>
 
-      {/* CSS Animations */}
+      {/* Circle Cards Section */}
+      <div style={circleContainerStyle}>
+        <div style={{ ...circleCardStyle, ...hoverEffect }}>Customer Support</div>
+        <div style={{ ...circleCardStyle, ...hoverEffect }}>Technical Support</div>
+        <div style={{ ...circleCardStyle, ...hoverEffect }}>Telemarketing Support</div>
+      </div>
+
+      {/* Animations */}
       <style>
         {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            80% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
           }
           @keyframes scaleUpDown {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
           }
-          @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
           }
-
-          .heading {
-            color: #007bff; /* Blue text color */
-            font-family: 'Merriweather', serif;
-            font-size: ${isMobile ? "4vw" : "2.5vw"};
-            font-weight: bold;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(90deg, #007bff, #00c0ff); /* Blue gradient text */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+          @keyframes slideInLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
           }
-
-          .sub-heading {
-            color: #007bff; /* Blue text color */
-            font-size: ${isMobile ? "3.5vw" : "2vw"};
-            margin-top: 0.5%;
-            font-family: 'Merriweather', serif;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(90deg, #00c0ff, #007bff); /* Blue gradient text */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0 3%;
+          @keyframes slideInRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
           }
         `}
       </style>
