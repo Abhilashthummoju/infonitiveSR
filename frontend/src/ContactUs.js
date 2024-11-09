@@ -41,6 +41,9 @@ const ContactUs = () => {
             });
     };
 
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+
     const focusedInputStyle = {
         boxShadow: "0 4px 15px rgba(0, 123, 255, 0.4)",
         borderColor: "#007bff",
@@ -122,8 +125,7 @@ const ContactUs = () => {
     };
 
     // Media Queries using react-responsive
-    const isMobile = useMediaQuery({ maxWidth: 767 });
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+    
 
     return (
         <div id="contact" style={sectionStyle}>
