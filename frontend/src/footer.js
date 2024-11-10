@@ -61,7 +61,7 @@ const Footer = () => {
 const footerStyle = (isMobile)=>({
   backgroundColor: '#ffffff',
   color: '#1f3a68',
-  padding: "60px 30px",
+  padding: "60px 0px",
   paddingRight: 0,
   fontFamily: "'Arial', sans-serif",
   textAlign: 'center',
