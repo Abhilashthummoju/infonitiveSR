@@ -162,32 +162,52 @@ function Navbar() {
                 {item} {item === "Services" && <FontAwesomeIcon icon={faCaretDown} />}
               </a>
               {item === "Services" && isDropdownOpen && (
-                <div style={{
-                  position: "absolute",
-                  backgroundColor: "white",
-                  border: "1px solid #ccc",
-                  borderRadius: "5px",
-                  marginTop: "10px",
-                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-                  zIndex: 1000,
-                }}>
-                  {["Customer Support", "Technical Support", "Telemarketing Services"].map(
-                    (service) => (
-                      <div
-                        key={service}
-                        style={{
-                          padding: "10px 20px",
-                          cursor: "pointer",
-                          color: "black",
-                        }}
-                        onClick={() => handleDropdownClick(service)}
-                      >
-                        {service}
-                      </div>
-                    )
-                  )}
-                </div>
-              )}
+  <div style={{
+    position: "relative",
+    backgroundColor: "white",
+    marginTop: "12px",
+    boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+    borderRadius: "8px",
+    overflow: "hidden",
+    padding: "5px 0",
+    width: "90%", // Adjust width to fit mobile better
+    marginLeft: "auto",
+    marginRight: "auto",
+    maxWidth: "300px", // Optional: limit dropdown width
+    textAlign: "left",
+  }}>
+    {["Customer Support", "Technical Support", "Telemarketing Services"].map((service) => (
+      <div
+        key={service}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "12px 16px",
+          cursor: "pointer",
+          color: "#333",
+          fontSize: "1rem",
+          transition: "background-color 0.3s ease, transform 0.2s ease",
+          borderRadius: "5px",
+          margin: "5px",
+        }}
+        onClick={() => handleDropdownClick(service)}
+        onMouseEnter={(e) => {
+          e.target.style.backgroundColor = "#f0f8ff";
+          e.target.style.transform = "scale(1.02)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.backgroundColor = "white";
+          e.target.style.transform = "scale(1)";
+        }}
+      >
+        <span style={{ marginRight: "10px" }}>📞</span> {/* Replace with relevant icons if preferred */}
+        {service}
+      </div>
+    ))}
+  </div>
+)}
+
+
             </li>
           ))}
         </ul>

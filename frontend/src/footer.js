@@ -83,15 +83,15 @@ const footerContentStyle = (isMobile) => ({
 
 const footerSectionStyle = (isMobile) => ({
   flex: isMobile ? '1' : '0.3',
-  minWidth: '250px',
-  padding: '20px',
+  width: isMobile ? '100%' : 'auto',  // Use full width on mobile
+  padding: isMobile ? '10px' : '20px', // Adjust padding for mobile
   borderRadius: '15px',
   backgroundColor: '#ffffff',
-  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', // More noticeable shadow for sections
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)', // Shadow for sections
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   minHeight: '270px',
-  hover: 'transform: scale(1.05)', // Hover effect for interactive elements
-  marginBottom: '20px', // Add spacing between the cards
+  marginBottom: '20px',
+  boxSizing: 'border-box', // To prevent overflow due to padding
 });
 
 const headingStyle = {
