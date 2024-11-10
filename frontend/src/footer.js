@@ -7,7 +7,7 @@ const Footer = () => {
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
 
   return (
-    <footer style={footerStyle}>
+    <footer style={footerStyle(isMobile)}>
       <div style={footerContentStyle(isMobile)}>
         <div style={footerSectionStyle(isMobile)}>
           <h3 style={headingStyle}>Our Services</h3>
@@ -58,7 +58,7 @@ const Footer = () => {
 
 // Enhanced CSS Styles with White and Blue Theme
 
-const footerStyle = {
+const footerStyle = (isMobile)=>({
   backgroundColor: '#ffffff',
   color: '#1f3a68',
   padding: "60px 30px",
@@ -71,7 +71,7 @@ const footerStyle = {
   display: isMobile? "flex":"",
   alignItems: "center",
   justifyContent:"center"
-};
+});
 
 const footerContentStyle = (isMobile) => ({
   display: 'flex',
