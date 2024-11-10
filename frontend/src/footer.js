@@ -68,6 +68,9 @@ const footerStyle = {
   boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)',
   animation: 'fadeIn 1.5s ease-in-out',
   transition: 'background-color 0.3s ease',
+  display: isMobile? "flex":"",
+  alignItems: "center",
+  justifyContent:"center"
 };
 
 const footerContentStyle = (isMobile) => ({

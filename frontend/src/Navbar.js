@@ -56,6 +56,33 @@ function Navbar() {
         borderBottom: isHeroSection ? "none" : "1px solid #ddd",
       }}
     >
+      <style>
+        {`
+         @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes bounceIn {
+          0% {
+            transform: scale(0.9);
+          }
+          60% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        
+        `}
+     
+      </style>
       <div
         style={{
           fontSize: isMobile ? "1.2rem" : "1.5rem",
@@ -75,6 +102,8 @@ function Navbar() {
               cursor: "pointer",
               color: "black",
               marginRight: 5,
+              transition: "transform 0.3s ease",
+              transform: isMenuOpen ? "rotate(90deg)" : "rotate(0deg)",
             }}
             onClick={toggleMenu}
           />
@@ -87,14 +116,13 @@ function Navbar() {
                 backgroundColor: "#ffffff",
                 width: "100%",
                 textAlign: "center",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.25)",
+                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
                 zIndex: 1000,
                 borderRadius: "12px",
                 overflow: "hidden",
-                transition:
-                  "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
-                transform: isMenuOpen ? "translateY(0)" : "translateY(-20px)",
+                animation: "slideDown 0.5s ease", // Slide-down effect
                 opacity: isMenuOpen ? 1 : 0,
+                transform: isMenuOpen ? "translateY(0)" : "translateY(-20px)",
               }}
             >
               <ul
@@ -105,7 +133,9 @@ function Navbar() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "15px",
-                  background: "linear-gradient(135deg, #e6f7ff, #ffffff)",
+                  background: "linear-gradient(135deg, #d7eaf3, #ffffff)",
+                  borderRadius: "8px",
+                  animation: "fadeIn 0.4s ease-in-out",
                 }}
               >
                 {["Home", "About", "Services", "Contact"].map((item) => (
@@ -114,14 +144,14 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(item === "Services")}
                     style={{
                       position: "relative",
-                      padding: "12px 0",
-                      cursor: "pointer",
-                      transition:
-                        "background-color 0.3s ease, transform 0.2s ease",
+                padding: "12px 0",
+                cursor: "pointer",
+                transition: "background-color 0.4s ease, transform 0.4s ease",
+                borderRadius: "8px",
                     }}
                     onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = "#d0ebff";
-                      e.target.style.transform = "scale(1.05)";
+                      e.target.style.backgroundColor = "#b3e5fc";
+                      e.target.style.transform = "scale(1.1)";
                     }}
                     onMouseLeave={(e) => {
                       e.target.style.backgroundColor = "transparent";
@@ -136,17 +166,16 @@ function Navbar() {
                             ? "#0077ff"
                             : "#333333",
                         textDecoration: "none",
-                        fontSize: "1.2rem",
+                        fontSize: "1.3rem",
                         padding: "12px 25px",
                         fontWeight:
-                          selectedSection === item.toLowerCase()
-                            ? "600"
-                            : "500",
+                          selectedSection === item.toLowerCase() ? "600" : "500",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
                         gap: "8px",
                         transition: "color 0.3s ease",
+                        animation: "bounceIn 0.5s ease forwards", // Bounce effect for links
                       }}
                       onClick={() => setSelectedSection(item.toLowerCase())}
                     >
@@ -166,15 +195,15 @@ function Navbar() {
                     </a>
                     {item === "Services" && isDropdownOpen && (
                       <div
-                        style={{
-                          position: "relative",
-                          backgroundColor: "#ffffff",
-                          marginTop: "8px",
-                          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
-                          borderRadius: "8px",
-                          overflow: "hidden",
-                          animation: "fadeIn 0.3s ease-in-out", // Fade-in animation
-                        }}
+                      style={{
+                        position: "relative",
+                        backgroundColor: "#ffffff",
+                        marginTop: "8px",
+                        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                        animation: "slideDown 0.4s ease", // Slide-down effect for submenu
+                      }}
                       >
                         {[
                           "Customer Support",
@@ -191,11 +220,11 @@ function Navbar() {
                               textAlign: "left",
                               transition:
                                 "background-color 0.3s ease, transform 0.2s ease",
+                              animation: "fadeIn 0.6s ease",
                             }}
-                            onClick={() => handleDropdownClick(service)}
                             onMouseEnter={(e) => {
-                              e.target.style.backgroundColor = "#f0f8ff";
-                              e.target.style.transform = "scale(1.03)";
+                              e.target.style.backgroundColor = "#e3f2fd";
+                              e.target.style.transform = "scale(1.05)";
                             }}
                             onMouseLeave={(e) => {
                               e.target.style.backgroundColor = "white";
