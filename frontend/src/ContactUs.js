@@ -136,8 +136,8 @@ const ContactUs = () => {
                         flexDirection: isMobile ? "column" : "row",
                         width: "100%",
                         justifyContent: "center",
-                        margin: "0 auto",  // Ensure the content is centered on mobile
-                        padding: "0 15px", // Added padding to prevent overflow
+                        margin: isMobile?0:"0 auto",  // Ensure the content is centered on mobile
+                        padding: isMobile?0:"0 15px", // Added padding to prevent overflow
                     }}
                 >
                     <div style={{

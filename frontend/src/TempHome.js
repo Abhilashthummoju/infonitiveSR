@@ -40,7 +40,7 @@ const TempHome = () => {
     transform: "translateY(20px)",
     transition: "all 0.3s ease-in-out",
     animation: "bounceIn 1.5s ease-out",
-    height: isMobile ? "50%" : "60vh",
+    height: isMobile ? "auto" : "60vh",
   };
 
   const imageStyle = {
