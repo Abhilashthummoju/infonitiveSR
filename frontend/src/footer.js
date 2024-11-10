@@ -70,7 +70,8 @@ const footerStyle = (isMobile)=>({
   transition: 'background-color 0.3s ease',
   display: isMobile? "flex":"",
   alignItems: "center",
-  justifyContent:"center"
+  justifyContent:"center",
+  flexDirection:"column"
 });
 
 const footerContentStyle = (isMobile) => ({

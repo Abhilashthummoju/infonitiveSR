@@ -136,6 +136,9 @@ function Navbar() {
                   background: "linear-gradient(135deg, #d7eaf3, #ffffff)",
                   borderRadius: "8px",
                   animation: "fadeIn 0.4s ease-in-out",
+                  border: "solid",
+                  borderColor: "black",
+                  borderWidth: 3
                 }}
               >
                 {["Home", "About", "Services", "Contact"].map((item) => (
@@ -144,10 +147,13 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(item === "Services")}
                     style={{
                       position: "relative",
-                padding: "12px 0",
-                cursor: "pointer",
-                transition: "background-color 0.4s ease, transform 0.4s ease",
-                borderRadius: "8px",
+                      padding: "12px 0",
+                      cursor: "pointer",
+                      transition: "background-color 0.4s ease, transform 0.4s ease",
+                      borderRadius: "8px",
+                      border: "solid",
+                      borderColor: "blue",
+                      borderWidth: 3
                     }}
                     onMouseEnter={(e) => {
                       e.target.style.backgroundColor = "#b3e5fc";
@@ -176,6 +182,9 @@ function Navbar() {
                         gap: "8px",
                         transition: "color 0.3s ease",
                         animation: "bounceIn 0.5s ease forwards", // Bounce effect for links
+                        border: "solid",
+                        borderColor: "red",
+                        borderWidth: 3
                       }}
                       onClick={() => setSelectedSection(item.toLowerCase())}
                     >
